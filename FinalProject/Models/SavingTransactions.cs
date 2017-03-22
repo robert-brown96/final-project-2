@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 namespace FinalProject.Models
 {
     //enum for transaction types
-    enum Types { Withdraw, Deposit, Transfer }
+    public enum Types { Withdraw, Deposit, Transfer }
 
     
     public class SavingTransactions
@@ -32,16 +32,25 @@ namespace FinalProject.Models
         [DisplayFormat(DataFormatString ="{0:C}")]
         public Decimal Amount { get; set; }
 
-        public Type Type { get; set; }
+        public Types type { get; set; }
 
 
         //deposit method
         public void ChangeAmount ()
         {
-            if (Type == )
+            
+            if (type == Types.Deposit)
+            {
+                //add to the amount
+                Savings.Balance = Amount + Savings.Balance;
+            }
+            else if (type == Types.Withdraw)
+            {
+                //subtract
+                Savings.Balance -= Amount;
+            }
 
-            //add to the amount
-            Savings.Balance = Amount + Savings.Balance;
+            
 
         }
 
