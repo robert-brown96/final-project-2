@@ -24,7 +24,7 @@ namespace FinalProject.Models
         //actual balance will be computed through the saving transactions class
         //set private backing variable
         [DisplayFormat(DataFormatString ="{0:C}")]
-        private Decimal _decBalance;
+        //private Decimal _decBalance;
         /*
         public Decimal Balance
         {
