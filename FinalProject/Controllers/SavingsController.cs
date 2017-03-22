@@ -47,7 +47,7 @@ namespace FinalProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SavingID,Name")] Saving saving)
+        public ActionResult Create([Bind(Include = "SavingID,Name,Balance")] Saving saving)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace FinalProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SavingID,Name")] Saving saving)
+        public ActionResult Edit([Bind(Include = "SavingID,Name,Balance")] Saving saving)
         {
             if (ModelState.IsValid)
             {

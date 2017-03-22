@@ -32,6 +32,8 @@ namespace FinalProject.Models
         [DisplayFormat(DataFormatString ="{0:C}")]
         public Decimal Amount { get; set; }
 
+
+        //type of transaction
         public Types type { get; set; }
 
 
@@ -46,9 +48,11 @@ namespace FinalProject.Models
             }
             else if (type == Types.Withdraw)
             {
-                //subtract
+                //subtract from amount
                 Savings.Balance -= Amount;
             }
+
+            //logic for transfers should go here
 
             
 
