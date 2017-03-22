@@ -29,7 +29,7 @@ namespace FinalProject.Models
         public Decimal Balance
         {
             get { return _decBalance; }
-            set { }
+            set { //in here should link to the change amount method in transaction}
 
         }
        */
@@ -43,11 +43,7 @@ namespace FinalProject.Models
         public virtual List<SavingTransactions> SavingTransactions { get; set; }
 
 
-
-        // private Decimal _decBalance;
-        /*
-        public Decimal Balance
-       */
+        
     }
 
 

@@ -7,13 +7,13 @@ namespace FinalProject.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class InitialSetup : IMigrationMetadata
+    public sealed partial class InitialSet : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialSetup));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialSet));
         
         string IMigrationMetadata.Id
         {
-            get { return "201703222242322_InitialSetup"; }
+            get { return "201703222306094_InitialSet"; }
         }
         
         string IMigrationMetadata.Source

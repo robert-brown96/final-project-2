@@ -137,9 +137,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703222242322_InitialSetup.cs" />
-    <Compile Include="Migrations\201703222242322_InitialSetup.Designer.cs">
-      <DependentUpon>201703222242322_InitialSetup.cs</DependentUpon>
+    <Compile Include="Migrations\201703222306094_InitialSet.cs" />
+    <Compile Include="Migrations\201703222306094_InitialSet.Designer.cs">
+      <DependentUpon>201703222306094_InitialSet.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Saving.cs" />
@@ -152,16 +152,6 @@
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\SavingTransactions\Create.cshtml" />
-    <Content Include="Views\SavingTransactions\Delete.cshtml" />
-    <Content Include="Views\SavingTransactions\Details.cshtml" />
-    <Content Include="Views\SavingTransactions\Edit.cshtml" />
-    <Content Include="Views\SavingTransactions\Index.cshtml" />
-    <Content Include="Views\Savings\Create.cshtml" />
-    <Content Include="Views\Savings\Delete.cshtml" />
-    <Content Include="Views\Savings\Details.cshtml" />
-    <Content Include="Views\Savings\Edit.cshtml" />
-    <Content Include="Views\Savings\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -174,8 +164,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703222242322_InitialSetup.resx">
-      <DependentUpon>201703222242322_InitialSetup.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703222306094_InitialSet.resx">
+      <DependentUpon>201703222306094_InitialSet.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
