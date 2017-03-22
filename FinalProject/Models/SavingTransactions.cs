@@ -29,12 +29,12 @@ namespace FinalProject.Models
         public Decimal Amount { get; set; }
 
 
-        /*
-        public void Calc_Balance ()
+        //same from other places
+        public void Deposit ()
         {
             Savings.Balance = Amount + Savings.Balance;
         }
-        */
+        
 
         //link to the associated account
         public virtual Saving Savings { get; set; }

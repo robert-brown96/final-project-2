@@ -24,13 +24,15 @@ namespace FinalProject.Models
         //actual balance will be computed through the saving transactions class
         //set private backing variable
         [DisplayFormat(DataFormatString ="{0:C}")]
-        private Decimal _decBalance;
-        
+        public Decimal Balance { get; set; }
+       // private Decimal _decBalance;
+        /*
         public Decimal Balance
         {
 
-            get
-            {
+            get { return _decBalance}
+            
+                /*
                 //iterate through list
                 //UNHANDLED ERROR HERE
                 foreach(var SavingTransactions in SavingTransactions)
@@ -59,7 +61,12 @@ namespace FinalProject.Models
         }
 
        
-        
+        //deposit method
+        public void Deposit (SavingTransactions SavingTransaction)
+        {
+            //get the amount from transaction
+            
+        }
 
         //link to transactions
         public virtual List<SavingTransactions> SavingTransactions { get; set; }
