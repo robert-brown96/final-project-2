@@ -25,7 +25,27 @@ namespace FinalProject.Models
         //set private backing variable
         [DisplayFormat(DataFormatString ="{0:C}")]
         public Decimal Balance { get; set; }
-       // private Decimal _decBalance;
+
+
+
+        /*
+        //deposit method
+        public void Deposit(SavingTransactions SavingTransaction)
+        {
+            //get the amount from transaction
+
+        }*/
+
+        //link to transactions
+        public virtual List<SavingTransactions> SavingTransactions { get; set; }
+
+
+
+
+
+
+
+        // private Decimal _decBalance;
         /*
         public Decimal Balance
         {
@@ -58,18 +78,8 @@ namespace FinalProject.Models
                     _decBalance = _decBalance + decAmount;
                 }
             }*/
-        }
-
-       
-        //deposit method
-        public void Deposit (SavingTransactions SavingTransaction)
-        {
-            //get the amount from transaction
-            
-        }
-
-        //link to transactions
-        public virtual List<SavingTransactions> SavingTransactions { get; set; }
-
     }
+
+
+
 }

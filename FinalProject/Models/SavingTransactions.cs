@@ -29,11 +29,13 @@ namespace FinalProject.Models
         public Decimal Amount { get; set; }
 
 
-        //same from other places
+        //deposit method
         public void Deposit ()
         {
             Savings.Balance = Amount + Savings.Balance;
         }
+
+
         
 
         //link to the associated account
