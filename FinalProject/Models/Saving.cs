@@ -22,25 +22,40 @@ namespace FinalProject.Models
         //calculated balance
         //logic needed to recognize >5000 deposits
         //actual balance will be computed through the saving transactions class
-        //set private backing variabl
+        //set private backing variable
+        [DisplayFormat(DataFormatString ="{0:C}")]
         private Decimal _decBalance;
-        //hopefully this works
+        
         public Decimal Balance
         {
+
+            get
+            {
+                //iterate through list
+                //UNHANDLED ERROR HERE
+                foreach(var SavingTransactions in SavingTransactions)
+                {
+                    //temp variable
+                    decimal decAmount = SavingTransactions.Amount;
+                    _decBalance += decAmount;
+                }
+                return _decBalance;
+            }
+            /*
             //normal get method
             get { return _decBalance; }
-            //set method gets fucked
+            //set method 
             set
             {
                 //iterate through list of objects
-                foreach(var SavingTransactions in SavingTransactions)
+                foreach(Decimal SavingTransactions.Amount in SavingTransactions)
                 {
                     //temp variable from saving transactions model
                     decimal decAmount = SavingTransactions.Amount;
                     //add to total balance
                     _decBalance = _decBalance + decAmount;
                 }
-            }
+            }*/
         }
 
        
