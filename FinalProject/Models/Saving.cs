@@ -40,7 +40,7 @@ namespace FinalProject.Models
         
 
         //link to transactions
-        public virtual List<SavingTransactions> SavingTransactions { get; set; }
+        public virtual List<Transaction> SavingTransactions { get; set; }
 
 
         

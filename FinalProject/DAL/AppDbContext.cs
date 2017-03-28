@@ -13,7 +13,7 @@ namespace FinalProject.DAL
         public AppDbContext() : base("MyDBConnection") { }
 
         //Create the db set
-        public DbSet<Saving> Savings { get; set; }
-        public DbSet<SavingTransactions> SavingTransactions { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<Transaction> SavingTransactions { get; set; }
     }
 }

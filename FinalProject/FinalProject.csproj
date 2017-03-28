@@ -142,9 +142,11 @@
       <DependentUpon>201703222306094_InitialSet.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Saving.cs" />
-    <Compile Include="Models\SavingTransactions.cs" />
+    <Compile Include="Models\Transaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\AccountUtitlities.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

@@ -10,7 +10,7 @@ namespace FinalProject.Models
     public enum Types { Withdraw, Deposit, Transfer }
 
     
-    public class SavingTransactions
+    public class Transaction
     {
 
         //transaction id
@@ -44,12 +44,13 @@ namespace FinalProject.Models
             if (type == Types.Deposit)
             {
                 //add to the amount
-                Savings.Balance = Amount + Savings.Balance;
+                Account.Balance = Amount + Account.Balance;
             }
             else if (type == Types.Withdraw)
             {
+                decimal Balance = Account.Balance;
                 //subtract from amount
-                Savings.Balance -= Amount;
+                Account.Balance -= Amount;
             }
 
             //logic for transfers should go here
@@ -62,7 +63,7 @@ namespace FinalProject.Models
         
 
         //link to the associated account
-        public virtual Saving Savings { get; set; }
+        public virtual Account Accounts { get; set; }
 
         //other comments?
         public string Comments { get; set; }
