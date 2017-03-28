@@ -12,6 +12,11 @@ namespace FinalProject.Models
     
     public class Transaction
     {
+        //constructor that automatically applies transaction when instantiated
+        public Transaction()
+        {
+            Accounts.Balance = ChangeAmount(Accounts.Balance);
+        }
 
         //transaction id
         [Display(Name ="Transaction Number")]
@@ -37,22 +42,23 @@ namespace FinalProject.Models
         public Types type { get; set; }
 
 
-        //deposit method
-        public void ChangeAmount ()
+        //change amount method
+        public Decimal ChangeAmount (decimal Balance)
         {
             
+
             if (type == Types.Deposit)
             {
                 //add to the amount
-                Account.Balance = Amount + Account.Balance;
+                Balance = Amount + Balance;
             }
             else if (type == Types.Withdraw)
             {
-                decimal Balance = Account.Balance;
+                
                 //subtract from amount
-                Account.Balance -= Amount;
+                Balance -= Amount;
             }
-
+            return Balance;
             //logic for transfers should go here
 
             
@@ -60,13 +66,13 @@ namespace FinalProject.Models
         }
 
 
-        
+        //other comments?
+        public string Comments { get; set; }
 
         //link to the associated account
         public virtual Account Accounts { get; set; }
 
-        //other comments?
-        public string Comments { get; set; }
+        
 
 
 

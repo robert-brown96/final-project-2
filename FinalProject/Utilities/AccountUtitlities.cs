@@ -30,7 +30,7 @@ namespace FinalProject.Utilities
         public static string SetupAccount(string Type)
         {
             List<string> AccList = AccountTypes();
-
+            
             if (AccList.Contains(Type))
             {
                 return Type;

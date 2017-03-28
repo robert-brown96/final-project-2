@@ -46,35 +46,13 @@ namespace FinalProject.Models
         //logic needed to recognize >5000 deposits
         //actual balance will be computed through the saving transactions class
         //set private backing variable
-        [DisplayFormat(DataFormatString = "{0:C}")]
-        /*private Decimal _decBalance;
-        
-        public Decimal Balance
-        {
-            get { return _decBalance; }
-            set { _decBalance = Sa }
-
-        }*/
-       
+        [DisplayFormat(DataFormatString = "{0:C}")]      
         public Decimal Balance { get; set; }
 
 
+        public string AccountType { get; private set; }
 
-        private string _strAccountType;
-
-        public string AccountType
-        {
-            get { return _strAccountType; }
-            set
-            {
-                List<string> AccountList = AccountUtitlities.AccountTypes();
-
-            }
-        }
-
-     
-
-
+    
         //link to transactions
         public virtual List<Transaction> SavingTransactions { get; set; }
     }
