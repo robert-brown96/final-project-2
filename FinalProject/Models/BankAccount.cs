@@ -20,15 +20,19 @@ namespace FinalProject.Models
         //account constructor
         public BankAccount()
         {
+            
+
             Transaction FirstTransaction = new Transaction();
             //set amount from transaction
             Balance = FirstTransaction.Amount;
             //auto increment account number
             AccountNumber = AccountUtitlities.AccountNumber + 1;
-            AccountType = AccountUtitlities.SetupAccount(AccountType);
+            AccountType = AccountUtitlities.SetupAccount(AccountType, Name);
 
 
         }
+
+        
         //account number for display
         public Int32 AccountNumber { get; set; }
         
