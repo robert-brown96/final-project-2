@@ -14,7 +14,7 @@ namespace FinalProject.DAL
         //TODO:  Add dbsets here, for instance there's one for books
         //Remember, Identity adds a db set for users, so you shouldn't add that one - you will get an error
         //Create the db set
-        public DbSet<Account> Accounts { get; set; }
+        public DbSet<BankAccount> Accounts { get; set; }
         public DbSet<Transaction> SavingTransactions { get; set; }
 
 

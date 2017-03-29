@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using FinalProject.Utilities;
+using FinalProject.DAL;
 
 
 namespace FinalProject.Models
@@ -13,6 +14,7 @@ namespace FinalProject.Models
     {
         //account number primary key
         [Display(Name = "Account ID")]
+        [Key]
         public Int32 BankAccountID { get; set; }
 
         //account constructor
@@ -29,15 +31,7 @@ namespace FinalProject.Models
         }
         //account number for display
         public Int32 AccountNumber { get; set; }
-        /*
-        private Int32 _intAccountNumber;
-        public Int32 AccountNumber
-        {
-            get { return _intAccountNumber; }
-            //auto increment the values each time it is instantiated
-            set { _intAccountNumber = AccountUtitlities.AccountNumber + 1; }
-        }
-        */
+        
 
         //account name
         [Required(ErrorMessage = "Account name is required")]
