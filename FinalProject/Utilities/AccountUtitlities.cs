@@ -38,9 +38,7 @@ namespace FinalProject.Utilities
             else
             {
                 return "1";
-            }
-
-            
+            }            
         }
 
         //account number property
