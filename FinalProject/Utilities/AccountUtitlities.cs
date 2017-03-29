@@ -33,9 +33,11 @@ namespace FinalProject.Utilities
             
             if (AccList.Contains(Type))
             {
-                if (Name is null)
+                if (string.IsNullOrEmpty(Name))
                 {
                     Name = "Longhorn" + Type;
+
+                    return Name;
                 }
                 return Type;
             }
