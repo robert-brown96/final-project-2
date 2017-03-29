@@ -19,7 +19,7 @@ namespace FinalProject.Utilities
         {
             List<string> AccountTypeList = new List<string>();
 
-            AccountTypeList.Add("Saving");
+            AccountTypeList.Add("Savings");
             AccountTypeList.Add("Checking");
             AccountTypeList.Add("IRA");
             AccountTypeList.Add("Stock");         
