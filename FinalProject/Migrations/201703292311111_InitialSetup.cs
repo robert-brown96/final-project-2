@@ -3,7 +3,7 @@ namespace FinalProject.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class InitialSetup : DbMigration
     {
         public override void Up()
         {
@@ -13,7 +13,7 @@ namespace FinalProject.Migrations
                     {
                         BankAccountID = c.Int(nullable: false, identity: true),
                         AccountNumber = c.Int(nullable: false),
-                        Name = c.String(nullable: false),
+                        Name = c.String(),
                         Balance = c.Decimal(nullable: false, precision: 18, scale: 2),
                         AppUser_Id = c.String(maxLength: 128),
                     })
@@ -89,14 +89,14 @@ namespace FinalProject.Migrations
                 "dbo.Transactions",
                 c => new
                     {
-                        SavingTransactionsID = c.Int(nullable: false, identity: true),
+                        TransactionID = c.Int(nullable: false, identity: true),
                         Date = c.DateTime(nullable: false),
                         Amount = c.Decimal(nullable: false, precision: 18, scale: 2),
                         type = c.Int(nullable: false),
                         Comments = c.String(),
                         Accounts_BankAccountID = c.Int(),
                     })
-                .PrimaryKey(t => t.SavingTransactionsID)
+                .PrimaryKey(t => t.TransactionID)
                 .ForeignKey("dbo.BankAccounts", t => t.Accounts_BankAccountID)
                 .Index(t => t.Accounts_BankAccountID);
             
