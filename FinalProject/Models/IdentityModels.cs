@@ -61,7 +61,7 @@ namespace FinalProject.Models
         public DateTime Birthday { get; set; }
 
         //account foreign key
-        public virtual List<Account> Account { get; set; }
+        public virtual List<BankAccount> Account { get; set; }
 
 
         //This method allows you to create a new user

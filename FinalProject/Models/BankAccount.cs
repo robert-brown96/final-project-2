@@ -9,16 +9,16 @@ using FinalProject.Utilities;
 namespace FinalProject.Models
 {
     
-    public class Account
+    public class BankAccount
     {
         //account number primary key
         [Display(Name = "Account ID")]
-        public Int32 AccountID { get; set; }
+        public Int32 BankAccountID { get; set; }
 
         //account constructor
-        public Account(Transaction FirstTransaction)
+        public BankAccount()
         {
-            Balance = new Transaction FirstTransaction;
+            Transaction FirstTransaction = new Transaction();
             //set amount from transaction
             Balance = FirstTransaction.Amount;
             //auto increment account number
@@ -55,7 +55,7 @@ namespace FinalProject.Models
 
     
         //link to transactions
-        public virtual List<Transaction> SavingTransactions { get; set; }
+        public virtual List<Transaction> Transactions { get; set; }
 
         //link to user
         public virtual AppUser AppUser { get; set; }

@@ -70,7 +70,7 @@ namespace FinalProject.Models
         public string Comments { get; set; }
 
         //link to the associated account
-        public virtual Account Accounts { get; set; }
+        public virtual BankAccount Accounts { get; set; }
 
         
 
