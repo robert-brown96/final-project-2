@@ -38,7 +38,6 @@ namespace FinalProject.Models
         
 
         //account name
-        [Required(ErrorMessage = "Account name is required")]
         public string Name { get; set; }
 
         //calculated balance
