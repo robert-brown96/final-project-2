@@ -1,9 +1,15 @@
-﻿
+﻿@using FinalProject.Controllers
+@using FinalProject.Models
+@model AccountController
+
 @{
     ViewBag.Title = "Home";
 }
 
 <h2>Home</h2>
 <p>
-    @Html.ActionLink
+    @Html.ActionLink("Login Here", "Login")
+</p>
+<p>
+    @Html.ActionLink("Register Here", "Register")
 </p>

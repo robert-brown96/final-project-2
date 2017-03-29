@@ -3,23 +3,21 @@ namespace FinalProject.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialSetup : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
-            DropForeignKey("dbo.SavingTransactions", "Savings_SavingID", "dbo.Savings");
-            DropIndex("dbo.SavingTransactions", new[] { "Savings_SavingID" });
             CreateTable(
-                "dbo.Accounts",
+                "dbo.BankAccounts",
                 c => new
                     {
-                        AccountID = c.Int(nullable: false, identity: true),
+                        BankAccountID = c.Int(nullable: false, identity: true),
                         AccountNumber = c.Int(nullable: false),
                         Name = c.String(nullable: false),
                         Balance = c.Decimal(nullable: false, precision: 18, scale: 2),
                         AppUser_Id = c.String(maxLength: 128),
                     })
-                .PrimaryKey(t => t.AccountID)
+                .PrimaryKey(t => t.BankAccountID)
                 .ForeignKey("dbo.AspNetUsers", t => t.AppUser_Id)
                 .Index(t => t.AppUser_Id);
             
@@ -29,10 +27,9 @@ namespace FinalProject.Migrations
                     {
                         Id = c.String(nullable: false, maxLength: 128),
                         FName = c.String(nullable: false),
+                        Phone = c.String(nullable: false),
                         LName = c.String(nullable: false),
                         Address = c.String(nullable: false),
-                        City = c.String(nullable: false),
-                        State = c.String(nullable: false),
                         Zip = c.String(nullable: false),
                         Birthday = c.DateTime(nullable: false),
                         Email = c.String(maxLength: 256),
@@ -97,11 +94,11 @@ namespace FinalProject.Migrations
                         Amount = c.Decimal(nullable: false, precision: 18, scale: 2),
                         type = c.Int(nullable: false),
                         Comments = c.String(),
-                        Accounts_AccountID = c.Int(),
+                        Accounts_BankAccountID = c.Int(),
                     })
                 .PrimaryKey(t => t.SavingTransactionsID)
-                .ForeignKey("dbo.Accounts", t => t.Accounts_AccountID)
-                .Index(t => t.Accounts_AccountID);
+                .ForeignKey("dbo.BankAccounts", t => t.Accounts_BankAccountID)
+                .Index(t => t.Accounts_BankAccountID);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -114,56 +111,31 @@ namespace FinalProject.Migrations
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.Name, unique: true, name: "RoleNameIndex");
             
-            DropTable("dbo.Savings");
-            DropTable("dbo.SavingTransactions");
         }
         
         public override void Down()
         {
-            CreateTable(
-                "dbo.SavingTransactions",
-                c => new
-                    {
-                        SavingTransactionsID = c.Int(nullable: false, identity: true),
-                        Date = c.DateTime(nullable: false),
-                        Amount = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        Comments = c.String(),
-                        Savings_SavingID = c.Int(),
-                    })
-                .PrimaryKey(t => t.SavingTransactionsID);
-            
-            CreateTable(
-                "dbo.Savings",
-                c => new
-                    {
-                        SavingID = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false),
-                    })
-                .PrimaryKey(t => t.SavingID);
-            
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.Transactions", "Accounts_AccountID", "dbo.Accounts");
+            DropForeignKey("dbo.Transactions", "Accounts_BankAccountID", "dbo.BankAccounts");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Accounts", "AppUser_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.BankAccounts", "AppUser_Id", "dbo.AspNetUsers");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.Transactions", new[] { "Accounts_AccountID" });
+            DropIndex("dbo.Transactions", new[] { "Accounts_BankAccountID" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
-            DropIndex("dbo.Accounts", new[] { "AppUser_Id" });
+            DropIndex("dbo.BankAccounts", new[] { "AppUser_Id" });
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.Transactions");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
-            DropTable("dbo.Accounts");
-            CreateIndex("dbo.SavingTransactions", "Savings_SavingID");
-            AddForeignKey("dbo.SavingTransactions", "Savings_SavingID", "dbo.Savings", "SavingID");
+            DropTable("dbo.BankAccounts");
         }
     }
 }

@@ -27,12 +27,18 @@ namespace FinalProject.Utilities
             return AccountTypeList;
         }
 
-        public static string SetupAccount(string Type)
+        public static string SetupAccount(string Type, string Name)
         {
             List<string> AccList = AccountTypes();
             
             if (AccList.Contains(Type))
             {
+                if (string.IsNullOrEmpty(Name))
+                {
+                    Name = "Longhorn" + Type;
+
+                    return Name;
+                }
                 return Type;
             }
             else
