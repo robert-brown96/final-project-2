@@ -10,6 +10,7 @@ namespace FinalProject.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            ContextKey = "FinalProject.DAL.AppDbContext";
         }
 
         protected override void Seed(FinalProject.DAL.AppDbContext context)

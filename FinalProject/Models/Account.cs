@@ -50,10 +50,13 @@ namespace FinalProject.Models
         public Decimal Balance { get; set; }
 
 
-        public string AccountType { get; private set; }
+        public string AccountType { get; }
 
     
         //link to transactions
         public virtual List<Transaction> SavingTransactions { get; set; }
+
+        //link to user
+        public virtual AppUser AppUser { get; set; }
     }
 }

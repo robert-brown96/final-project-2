@@ -3,7 +3,7 @@ namespace FinalProject.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialSet : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
@@ -13,7 +13,6 @@ namespace FinalProject.Migrations
                     {
                         SavingID = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false),
-                        Balance = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
                 .PrimaryKey(t => t.SavingID);
             
@@ -24,7 +23,6 @@ namespace FinalProject.Migrations
                         SavingTransactionsID = c.Int(nullable: false, identity: true),
                         Date = c.DateTime(nullable: false),
                         Amount = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        type = c.Int(nullable: false),
                         Comments = c.String(),
                         Savings_SavingID = c.Int(),
                     })
