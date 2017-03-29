@@ -18,6 +18,7 @@ namespace FinalProject.Models
         //account constructor
         public Account(Transaction FirstTransaction)
         {
+            Balance = new Transaction FirstTransaction;
             //set amount from transaction
             Balance = FirstTransaction.Amount;
             //auto increment account number
