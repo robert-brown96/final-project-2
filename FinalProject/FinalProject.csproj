@@ -196,9 +196,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703292204003_Initial.cs" />
-    <Compile Include="Migrations\201703292204003_Initial.Designer.cs">
-      <DependentUpon>201703292204003_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201703301810189_Initial.cs" />
+    <Compile Include="Migrations\201703301810189_Initial.Designer.cs">
+      <DependentUpon>201703301810189_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BankAccount.cs" />
@@ -245,8 +245,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703292204003_Initial.resx">
-      <DependentUpon>201703292204003_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703301810189_Initial.resx">
+      <DependentUpon>201703301810189_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -13,7 +13,7 @@ namespace FinalProject.Migrations
                     {
                         BankAccountID = c.Int(nullable: false, identity: true),
                         AccountNumber = c.Int(nullable: false),
-                        Name = c.String(nullable: false),
+                        Name = c.String(),
                         Balance = c.Decimal(nullable: false, precision: 18, scale: 2),
                         AppUser_Id = c.String(maxLength: 128),
                     })
