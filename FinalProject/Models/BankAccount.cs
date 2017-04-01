@@ -34,7 +34,7 @@ namespace FinalProject.Models
 
         
         //account number for display
-        public Int32 AccountNumber { get; set; }
+        public Int32 AccountNumber { get; }
         
 
         //account name

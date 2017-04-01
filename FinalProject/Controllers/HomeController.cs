@@ -11,7 +11,7 @@ namespace FinalProject.Controllers
         // GET: Home
         public ActionResult Home()
         {
-            return View();
+            return RedirectToAction("Home", "Home");
         }
     }
 }
