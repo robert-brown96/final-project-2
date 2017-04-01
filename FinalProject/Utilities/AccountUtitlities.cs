@@ -19,7 +19,7 @@ namespace FinalProject.Utilities
         {
             List<string> AccountTypeList = new List<string>();
 
-            AccountTypeList.Add("Saving");
+            AccountTypeList.Add("Savings");
             AccountTypeList.Add("Checking");
             AccountTypeList.Add("IRA");
             AccountTypeList.Add("Stock");         
@@ -44,9 +44,7 @@ namespace FinalProject.Utilities
             else
             {
                 return "1";
-            }
-
-            
+            }            
         }
 
         //account number property
