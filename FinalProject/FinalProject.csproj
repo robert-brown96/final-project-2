@@ -200,6 +200,18 @@
     <Compile Include="Migrations\201703301810189_Initial.Designer.cs">
       <DependentUpon>201703301810189_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704021918586_Initial1.cs" />
+    <Compile Include="Migrations\201704021918586_Initial1.Designer.cs">
+      <DependentUpon>201704021918586_Initial1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704031839498_Initial2.cs" />
+    <Compile Include="Migrations\201704031839498_Initial2.Designer.cs">
+      <DependentUpon>201704031839498_Initial2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704031902072_Initial3.cs" />
+    <Compile Include="Migrations\201704031902072_Initial3.Designer.cs">
+      <DependentUpon>201704031902072_Initial3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BankAccount.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -228,12 +240,12 @@
     <Content Include="Views\RoleAdmin\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Home.cshtml" />
     <Content Include="Views\BankAccounts\Create.cshtml" />
     <Content Include="Views\BankAccounts\Delete.cshtml" />
     <Content Include="Views\BankAccounts\Details.cshtml" />
     <Content Include="Views\BankAccounts\Edit.cshtml" />
     <Content Include="Views\BankAccounts\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -247,6 +259,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201703301810189_Initial.resx">
       <DependentUpon>201703301810189_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704021918586_Initial1.resx">
+      <DependentUpon>201704021918586_Initial1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704031839498_Initial2.resx">
+      <DependentUpon>201704031839498_Initial2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704031902072_Initial3.resx">
+      <DependentUpon>201704031902072_Initial3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

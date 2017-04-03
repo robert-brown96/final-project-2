@@ -26,17 +26,17 @@ namespace FinalProject.Models
         public string FName { get; set; }
 
         //phone number, should have been here by default?
-        [Required(ErrorMessage ="Phone number is required")]
+        /*[Required(ErrorMessage ="Phone number is required")]
         [DataType(DataType.PhoneNumber)]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number")]
-        public string Phone { get; set; }
+        public string Phone { get; set; }*/
 
         [Required(ErrorMessage = "Last name is required")]
         [Display(Name = "Last Name")]
         public string LName { get; set; }
 
         [Display(Name = "Middle Initial")]
-        public char MInitial { get; set; }
+        public char? MInitial { get; set; }
 
         //address, city, state, zip properties
         //could be simplified somehow I think
@@ -58,6 +58,8 @@ namespace FinalProject.Models
         //required birthday property
         //need extra data annotation here
         [Required(ErrorMessage = "Birthday is required")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Birthday { get; set; }
 
         //account foreign key

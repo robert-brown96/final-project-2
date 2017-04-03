@@ -11,9 +11,9 @@ namespace FinalProject.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        public ActionResult Home()
+        public ActionResult Index()
         {
-            return RedirectToAction("Home", "Home");
+            return View();
         }
     }
 }

@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using FinalProject.Models;
+using FinalProject.DAL;
 using System.Web.Optimization;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
@@ -116,7 +117,7 @@ namespace FinalProject.Controllers
             if (ModelState.IsValid)
             {
                 //TODO: Add fields to user here so they will be saved to do the database
-                var user = new AppUser { UserName = model.Email, Email = model.Email, PhoneNumber = model.Phone, FName = model.FName, MInitial =model.MInitial, LName =model.LName, Address=model.Address,  Zip=model.Zip, Birthday=model.Birthday };
+                var user = new AppUser { UserName = model.Email, Email = model.Email, PhoneNumber = model.PhoneNumber, FName = model.FName, MInitial =model.MInitial, LName =model.LName, Address=model.Address,  Zip=model.Zip, Birthday=model.Birthday };
                 var result = await UserManager.CreateAsync(user, model.Password);
 
                 //TODO:  Once you get roles working, you may want to add users to roles upon creation

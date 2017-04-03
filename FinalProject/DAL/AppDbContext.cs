@@ -19,8 +19,7 @@ namespace FinalProject.DAL
 
 
         //TODO: Make sure that your connection string name is correct here.
-        public AppDbContext()
-            : base("MyDBConnection", throwIfV1Schema: false)
+        public AppDbContext(): base("MyDBConnection", throwIfV1Schema: false)
         {
         }
 
