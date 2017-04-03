@@ -82,6 +82,7 @@ namespace FinalProject.Controllers
             if (!ModelState.IsValid)
             {
                 return View(model);
+
             }
 
             // This doesn't count login failures towards account lockout
@@ -90,7 +91,8 @@ namespace FinalProject.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    //return RedirectToLocal(returnUrl);
+                    return RedirectToAction("Index", "BankAccounts");
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
