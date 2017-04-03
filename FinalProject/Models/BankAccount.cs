@@ -21,7 +21,6 @@ namespace FinalProject.Models
         public BankAccount()
         {
             
-
             Transaction FirstTransaction = new Transaction();
             //set amount from transaction
             Balance = FirstTransaction.Amount;
