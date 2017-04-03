@@ -39,6 +39,7 @@ namespace FinalProject.Controllers
         // GET: BankAccounts/Create
         public ActionResult Create()
         {
+            ViewBag.allAccountTypes = GetAllAccountTypes();
             return View();
         }
 
@@ -49,6 +50,8 @@ namespace FinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "BankAccountID,InitialDeposit,Name,Balance")] BankAccount bankAccount)
         {
+            ViewBag.allAccountTypes = GetAllAccountTypes();
+
             if (ModelState.IsValid)
             {
                 db.Accounts.Add(bankAccount);
@@ -123,6 +126,22 @@ namespace FinalProject.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        //select list for dropdown
+        public SelectList GetAllAccountTypes() //none chosen
+        {
+            
+
+            //execute query
+            //List<string> allAccountTypes = Utilities.AccountUtitlities.AccountTypes().ToList();
+
+
+            //convert list to select list
+            SelectList allAccountTypelist = new SelectList(Utilities.AccountUtitlities.AccountTypes());
+
+            //return the select list
+            return allAccountTypelist;
         }
     }
 }
