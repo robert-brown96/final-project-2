@@ -22,9 +22,8 @@ namespace FinalProject.Models
         public Decimal InitialDeposit { get; set; }
 
         //account constructor
-        public BankAccount()
+        public void CreateBankAccount()
         {
-
             Balance = InitialDeposit;
             //Transaction FirstTransaction = new Transaction();
             ////set amount from transaction
@@ -36,7 +35,7 @@ namespace FinalProject.Models
 
         
         //account number for display
-        public Int32 AccountNumber { get; }
+        public Int32 AccountNumber { get; set; }
         
 
         //account name
@@ -50,7 +49,7 @@ namespace FinalProject.Models
         public Decimal Balance { get; set; }
 
 
-        public string AccountType { get; }
+        public string AccountType { get; set; }
 
     
         //link to transactions

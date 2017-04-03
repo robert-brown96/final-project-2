@@ -54,6 +54,7 @@ namespace FinalProject.Controllers
 
             if (ModelState.IsValid)
             {
+                bankAccount.CreateBankAccount();
                 db.Accounts.Add(bankAccount);
                 db.SaveChanges();
                 return RedirectToAction("Index");
