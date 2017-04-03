@@ -9,6 +9,8 @@ using FinalProject.DAL;
 
 namespace FinalProject.Models
 {
+
+    public enum AccountTypes { Saving, Checking, IRA, Stock }
     
     public class BankAccount
     {
@@ -29,8 +31,9 @@ namespace FinalProject.Models
             ////set amount from transaction
             //Balance = FirstTransaction.Amount;
             ////auto increment account number
-            AccountNumber = AccountUtitlities.AccountNumber + 1;
-            AccountType = AccountUtitlities.SetupAccount(AccountType, Name);
+            AccountNumber = AccountUtitlities.AccountNumber + BankAccountID;
+
+            
         }
 
         
@@ -49,7 +52,7 @@ namespace FinalProject.Models
         public Decimal Balance { get; set; }
 
 
-        public string AccountType { get; set; }
+        public AccountTypes? AccountType { get; set; }
 
     
         //link to transactions

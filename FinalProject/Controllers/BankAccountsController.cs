@@ -51,7 +51,10 @@ namespace FinalProject.Controllers
         public ActionResult Create([Bind(Include = "BankAccountID,InitialDeposit,Name,Balance")] BankAccount bankAccount)
         {
             ViewBag.allAccountTypes = GetAllAccountTypes();
-
+            if (bankAccount.Name == null)
+            {
+                bankAccount.Name = "Longhorn " + bankAccount.AccountType;
+            }
             if (ModelState.IsValid)
             {
                 bankAccount.CreateBankAccount();
