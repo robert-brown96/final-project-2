@@ -11,6 +11,7 @@ namespace FinalProject.Models
 {
     public class Saving
     {
+
         //account number primary key
         [Display(Name="Account Number")]
         public Int32 SavingID { get; set; }
@@ -26,8 +27,6 @@ namespace FinalProject.Models
         [DisplayFormat(DataFormatString ="{0:C}")]
         public Decimal Balance { get; set; }
 
-
-
         /*
         //deposit method
         public void Deposit(SavingTransactions SavingTransaction)
@@ -38,9 +37,6 @@ namespace FinalProject.Models
 
         //link to transactions
         public virtual List<SavingTransactions> SavingTransactions { get; set; }
-
-
-
 
 
 

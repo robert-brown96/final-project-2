@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 namespace FinalProject.Models
 {
     //enum for transaction types
-    enum Types { Withdraw, Deposit, Transfer }
+    public enum Types { Withdraw, Deposit, Transfer };
 
     
     public class SavingTransactions
@@ -17,8 +17,6 @@ namespace FinalProject.Models
         [Display(Name ="Transaction Number")]
         [Key]
         public Int32 SavingTransactionsID { get; set; }
-
-
 
         //transaction date
         [Display(Name ="Transaction Date")]
@@ -32,7 +30,7 @@ namespace FinalProject.Models
         [DisplayFormat(DataFormatString ="{0:C}")]
         public Decimal Amount { get; set; }
 
-        public Type Type { get; set; }
+        public Types Type { get; set; }
 
 
         //deposit method
