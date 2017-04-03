@@ -11,107 +11,109 @@ using FinalProject.Models;
 
 namespace FinalProject.Controllers
 {
-    public class SavingTransactionsController : Controller
+    public class BankAccountsController : Controller
     {
         private AppDbContext db = new AppDbContext();
 
-        // GET: SavingTransactions
+        // GET: BankAccounts
         public ActionResult Index()
         {
-            return View(db.SavingTransactions.ToList());
+            List<BankAccount> AccountList = new List<BankAccount>();
+            AccountList = db.Accounts.ToList();
+            return View(AccountList);
         }
 
-        // GET: SavingTransactions/Details/5
+        // GET: BankAccounts/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SavingTransactions savingTransactions = db.SavingTransactions.Find(id);
-            if (savingTransactions == null)
+            BankAccount bankAccount = db.Accounts.Find(id);
+            if (bankAccount == null)
             {
                 return HttpNotFound();
             }
-            return View(savingTransactions);
+            return View(bankAccount);
         }
 
-        // GET: SavingTransactions/Create
+        // GET: BankAccounts/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: SavingTransactions/Create
+        // POST: BankAccounts/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SavingTransactionsID,Date,Amount,Comments")] SavingTransactions savingTransactions)
+        public ActionResult Create([Bind(Include = "BankAccountID,AccountNumber,Name,Balance")] BankAccount bankAccount)
         {
             if (ModelState.IsValid)
             {
-                db.SavingTransactions.Add(savingTransactions);
+                db.Accounts.Add(bankAccount);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(savingTransactions);
+            return View(bankAccount);
         }
 
-        // GET: SavingTransactions/Edit/5
+        // GET: BankAccounts/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SavingTransactions savingTransactions = db.SavingTransactions.Find(id);
-            if (savingTransactions == null)
+            BankAccount bankAccount = db.Accounts.Find(id);
+            if (bankAccount == null)
             {
                 return HttpNotFound();
             }
-            return View(savingTransactions);
+            return View(bankAccount);
         }
 
-        // POST: SavingTransactions/Edit/5
+        // POST: BankAccounts/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SavingTransactionsID,Date,Amount,Comments")] SavingTransactions savingTransactions)
+        public ActionResult Edit([Bind(Include = "BankAccountID,AccountNumber,Name,Balance")] BankAccount bankAccount)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(savingTransactions).State = EntityState.Modified;
+                db.Entry(bankAccount).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(savingTransactions);
+            return View(bankAccount);
         }
 
-        // GET: SavingTransactions/Delete/5
+        // GET: BankAccounts/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SavingTransactions savingTransactions = db.SavingTransactions.Find(id);
-            if (savingTransactions == null)
+            BankAccount bankAccount = db.Accounts.Find(id);
+            if (bankAccount == null)
             {
                 return HttpNotFound();
             }
-            return View(savingTransactions);
+            return View(bankAccount);
         }
 
-        // POST: SavingTransactions/Delete/5
+        // POST: BankAccounts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            SavingTransactions savingTransactions = db.SavingTransactions.Find(id);
-            db.SavingTransactions.Remove(savingTransactions);
+            BankAccount bankAccount = db.Accounts.Find(id);
+            db.Accounts.Remove(bankAccount);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

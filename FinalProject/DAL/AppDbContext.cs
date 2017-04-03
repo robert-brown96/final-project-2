@@ -1,19 +1,33 @@
-﻿using System;
+﻿using FinalProject.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
-using FinalProject.Models;
-using System.Data.Entity;
 
 namespace FinalProject.DAL
 {
-    public class AppDbContext : DbContext
+    //TODO: Here's your db context for the project.  All of your db sets should go in here
+    public class AppDbContext : IdentityDbContext<AppUser>
     {
-        //Constructor that invokes the base constructor
-        public AppDbContext() : base("MyDBConnection") { }
-
+        //TODO:  Add dbsets here, for instance there's one for books
+        //Remember, Identity adds a db set for users, so you shouldn't add that one - you will get an error
         //Create the db set
-        public DbSet<Saving> Savings { get; set; }
-        public DbSet<SavingTransactions> SavingTransactions { get; set; }
+        public DbSet<BankAccount> Accounts { get; set; }
+        public DbSet<Transaction> SavingTransactions { get; set; }
+
+
+        //TODO: Make sure that your connection string name is correct here.
+        public AppDbContext(): base("MyDBConnection", throwIfV1Schema: false)
+        {
+        }
+
+        public static AppDbContext Create()
+        {
+            return new AppDbContext();
+        }
+
+        public DbSet<AppRole> AppRoles { get; set; }
     }
 }
