@@ -11,9 +11,6 @@ namespace FinalProject.Utilities
 
 
         
-
-
-        
         //list for account types
         public static List<string> AccountTypes()
         {

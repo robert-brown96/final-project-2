@@ -13,9 +13,10 @@ namespace FinalProject.Models
     public class Transaction
     {
         //constructor that automatically applies transaction when instantiated
-        public Transaction(BankAccount SelectedAccount)
+        public Transaction()
         {
-            SelectedAccount.Balance = ChangeAmount(SelectedAccount.Balance);
+            Transaction NewTransaction = new Transaction();
+            NewTransaction.Accounts.Balance = ChangeAmount(NewTransaction.Accounts.Balance);
         }
 
         //transaction id

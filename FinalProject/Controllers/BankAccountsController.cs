@@ -18,9 +18,7 @@ namespace FinalProject.Controllers
         // GET: BankAccounts
         public ActionResult Index()
         {
-            List<BankAccount> AccountList = new List<BankAccount>();
-            AccountList = db.Accounts.ToList();
-            return View(AccountList);
+            return View(db.Accounts.ToList());
         }
 
         // GET: BankAccounts/Details/5
@@ -49,7 +47,7 @@ namespace FinalProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BankAccountID,AccountNumber,Name,Balance")] BankAccount bankAccount)
+        public ActionResult Create([Bind(Include = "BankAccountID,InitialDeposit,Name,Balance")] BankAccount bankAccount)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +79,7 @@ namespace FinalProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BankAccountID,AccountNumber,Name,Balance")] BankAccount bankAccount)
+        public ActionResult Edit([Bind(Include = "BankAccountID,InitialDeposit,Name,Balance")] BankAccount bankAccount)
         {
             if (ModelState.IsValid)
             {
