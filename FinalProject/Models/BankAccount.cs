@@ -24,12 +24,7 @@ namespace FinalProject.Models
         //account constructor
         public BankAccount()
         {
-
             Balance = InitialDeposit;
-            //Transaction FirstTransaction = new Transaction();
-            ////set amount from transaction
-            //Balance = FirstTransaction.Amount;
-            ////auto increment account number
             AccountNumber = AccountUtitlities.AccountNumber + 1;
             AccountType = AccountUtitlities.SetupAccount(AccountType, Name);
         }

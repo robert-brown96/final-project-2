@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using FinalProject.DAL;
 using FinalProject.Models;
+using FinalProject.Utilities;
 
 namespace FinalProject.Controllers
 {
@@ -51,7 +52,6 @@ namespace FinalProject.Controllers
         public ActionResult Create([Bind(Include = "BankAccountID,InitialDeposit,Name,Balance")] BankAccount bankAccount)
         {
             ViewBag.allAccountTypes = GetAllAccountTypes();
-
             if (ModelState.IsValid)
             {
                 db.Accounts.Add(bankAccount);

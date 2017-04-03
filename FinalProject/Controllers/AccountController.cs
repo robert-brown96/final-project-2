@@ -96,6 +96,7 @@ namespace FinalProject.Controllers
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);
             }
+
         }
 
        
