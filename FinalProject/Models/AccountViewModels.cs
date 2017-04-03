@@ -63,7 +63,7 @@ namespace FinalProject.Models
 
         //address, city, state, zip properties
         //could be simplified somehow I think
-        [Required(ErrorMessage = "Addresse is required")]
+        [Required(ErrorMessage = "Address is required")]
         [Display(Name = "Street Address")]
         [RegularExpression(@"^(?:\w+\s?)+\w+$", ErrorMessage = "Street Address not valid.")]
         public string Address { get; set; }
