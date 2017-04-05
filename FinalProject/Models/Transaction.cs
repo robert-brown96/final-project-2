@@ -23,7 +23,7 @@ namespace FinalProject.Models
         //transaction date
         [Display(Name = "Transaction Date")]
         [Required(ErrorMessage = ("A transaction date is required"))]
-        [DisplayFormat(DataFormatString = "{0:MM.dd.yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
 
 
