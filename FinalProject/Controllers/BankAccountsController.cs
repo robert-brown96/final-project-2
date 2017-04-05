@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using FinalProject.DAL;
 using FinalProject.Models;
+using FinalProject.Utilities;
 
 namespace FinalProject.Controllers
 {
@@ -48,13 +49,14 @@ namespace FinalProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BankAccountID,InitialDeposit,Name,Balance")] BankAccount bankAccount)
+        public ActionResult Create([Bind(Include = "BankAccountID,InitialDeposit,Name,Balance,AccountType")] BankAccount bankAccount, AccountTypes AccountType)
         {
             ViewBag.allAccountTypes = GetAllAccountTypes();
             if (bankAccount.Name == null)
             {
                 bankAccount.Name = "Longhorn " + bankAccount.AccountType;
             }
+            
             if (ModelState.IsValid)
             {
                 bankAccount.CreateBankAccount();
@@ -63,11 +65,14 @@ namespace FinalProject.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.allAccountTypes = GetAllAccountTypes();
             return View(bankAccount);
         }
 
-        // GET: BankAccounts/Edit/5
-        public ActionResult Edit(int? id)
+
+
+    // GET: BankAccounts/Edit/5
+    public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -138,11 +143,13 @@ namespace FinalProject.Controllers
             
 
             //execute query
-            //List<string> allAccountTypes = Utilities.AccountUtitlities.AccountTypes().ToList();
+            List<string> allAccountTypes = AccountUtitlities.AccountTypes().ToList();
 
+            // Build a List<SelectListItem>
+            // var selectListItems = allAccountTypes.Select(x => new SelectListItem() { Value = x, Text = x }).ToList();
 
             //convert list to select list
-            SelectList allAccountTypelist = new SelectList(Utilities.AccountUtitlities.AccountTypes());
+            SelectList allAccountTypelist = new SelectList(allAccountTypes, "Value", "Text");
 
             //return the select list
             return allAccountTypelist;

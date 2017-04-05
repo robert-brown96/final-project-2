@@ -38,6 +38,7 @@ namespace FinalProject.Models
 
         
         //account number for display
+        [Display(Name ="Account Number")]
         public Int32 AccountNumber { get; set; }
         
 
@@ -52,7 +53,7 @@ namespace FinalProject.Models
         public Decimal Balance { get; set; }
 
 
-        public AccountTypes? AccountType { get; set; }
+        public AccountTypes AccountType { get; set; }
 
     
         //link to transactions
