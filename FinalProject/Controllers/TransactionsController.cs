@@ -21,6 +21,12 @@ namespace FinalProject.Controllers
             return View(db.Transactions.ToList());
         }
 
+        // GET: Transactions
+        public ActionResult Summary()
+        {
+            return View(db.Transactions.ToList());
+        }
+
         // GET: Transactions/Details/5
         public ActionResult Details(int? id)
         {

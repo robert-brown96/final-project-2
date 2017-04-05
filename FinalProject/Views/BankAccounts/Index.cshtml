@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(Model => Model.Name)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.AccountType)
@@ -29,7 +29,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.ActionLink(@Html.DisplayFor(modelItem => item.Name).ToHtmlString(),"Summary","Transactions")
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.AccountType)
