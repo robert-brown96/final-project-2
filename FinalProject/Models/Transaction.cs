@@ -37,28 +37,25 @@ namespace FinalProject.Models
         public Types type { get; set; }
 
 
-        //change amount method
-        public Decimal ChangeAmount(decimal Balance)
-        {
+        ////change amount method
+        //public Decimal ChangeAmount(decimal Balance)
+        //{
 
 
-            if (type == Types.Deposit)
-            {
-                //add to the amount
-                Balance = Amount + Balance;
-            }
-            else if (type == Types.Withdraw)
-            {
+        //    if (type == Types.Deposit)
+        //    {
+        //        //add to the amount
+        //        Balance = Amount + Balance;
+        //    }
+        //    else if (type == Types.Withdraw)
+        //    {
 
-                //subtract from amount
-                Balance -= Amount;
-            }
-            return Balance;
-            //logic for transfers should go here
-
-
-
-        }
+        //        //subtract from amount
+        //        Balance -= Amount;
+        //    }
+        //    return Balance;
+        //    //logic for transfers should go here
+        //}
 
 
         //other comments?
