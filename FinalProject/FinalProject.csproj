@@ -189,15 +189,40 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BankAccountsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="DAL\AppDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703292311111_InitialSetup.cs" />
-    <Compile Include="Migrations\201703292311111_InitialSetup.Designer.cs">
-      <DependentUpon>201703292311111_InitialSetup.cs</DependentUpon>
+    <Compile Include="Migrations\201703301810189_Initial.cs" />
+    <Compile Include="Migrations\201703301810189_Initial.Designer.cs">
+      <DependentUpon>201703301810189_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704021918586_Initial1.cs" />
+    <Compile Include="Migrations\201704021918586_Initial1.Designer.cs">
+      <DependentUpon>201704021918586_Initial1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704031839498_Initial2.cs" />
+    <Compile Include="Migrations\201704031839498_Initial2.Designer.cs">
+      <DependentUpon>201704031839498_Initial2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704031902072_Initial3.cs" />
+    <Compile Include="Migrations\201704031902072_Initial3.Designer.cs">
+      <DependentUpon>201704031902072_Initial3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704032131505_migration1.cs" />
+    <Compile Include="Migrations\201704032131505_migration1.Designer.cs">
+      <DependentUpon>201704032131505_migration1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704032215218_account.cs" />
+    <Compile Include="Migrations\201704032215218_account.Designer.cs">
+      <DependentUpon>201704032215218_account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704032311173_new.cs" />
+    <Compile Include="Migrations\201704032311173_new.Designer.cs">
+      <DependentUpon>201704032311173_new.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BankAccount.cs" />
@@ -227,7 +252,12 @@
     <Content Include="Views\RoleAdmin\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Home.cshtml" />
+    <Content Include="Views\BankAccounts\Create.cshtml" />
+    <Content Include="Views\BankAccounts\Delete.cshtml" />
+    <Content Include="Views\BankAccounts\Details.cshtml" />
+    <Content Include="Views\BankAccounts\Edit.cshtml" />
+    <Content Include="Views\BankAccounts\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -239,8 +269,26 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703292311111_InitialSetup.resx">
-      <DependentUpon>201703292311111_InitialSetup.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703301810189_Initial.resx">
+      <DependentUpon>201703301810189_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704021918586_Initial1.resx">
+      <DependentUpon>201704021918586_Initial1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704031839498_Initial2.resx">
+      <DependentUpon>201704031839498_Initial2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704031902072_Initial3.resx">
+      <DependentUpon>201704031902072_Initial3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704032131505_migration1.resx">
+      <DependentUpon>201704032131505_migration1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704032215218_account.resx">
+      <DependentUpon>201704032215218_account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704032311173_new.resx">
+      <DependentUpon>201704032311173_new.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

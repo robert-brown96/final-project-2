@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using FinalProject.Models;
 
 namespace FinalProject.Utilities
 {
@@ -11,15 +12,12 @@ namespace FinalProject.Utilities
 
 
         
-
-
-        
         //list for account types
         public static List<string> AccountTypes()
         {
             List<string> AccountTypeList = new List<string>();
 
-            AccountTypeList.Add("Saving");
+            AccountTypeList.Add("Savings");
             AccountTypeList.Add("Checking");
             AccountTypeList.Add("IRA");
             AccountTypeList.Add("Stock");         
@@ -27,26 +25,14 @@ namespace FinalProject.Utilities
             return AccountTypeList;
         }
 
-        public static string SetupAccount(string Type, string Name)
+        public static string NullName(string type)
         {
-            List<string> AccList = AccountTypes();
-            
-            if (AccList.Contains(Type))
-            {
-                if (string.IsNullOrEmpty(Name))
-                {
-                    Name = "Longhorn" + Type;
+            string Name;
 
-                    return Name;
-                }
-                return Type;
-            }
-            else
-            {
-                return "1";
-            }
+            Name = "Longhorn" + type;
 
-            
+            return Name;
+                    
         }
 
         //account number property

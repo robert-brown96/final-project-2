@@ -35,7 +35,7 @@ namespace FinalProject.Models
         [Required(ErrorMessage = "Phone number is required")]
         [DataType(DataType.PhoneNumber)]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number")]
-        public string Phone { get; set; }
+        public string PhoneNumber { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
@@ -59,11 +59,11 @@ namespace FinalProject.Models
         public string LName { get; set; }
 
         [Display(Name = "Middle Initial")]
-        public char MInitial { get; set; }
+        public char? MInitial { get; set; }
 
         //address, city, state, zip properties
         //could be simplified somehow I think
-        [Required(ErrorMessage = "Addresse is required")]
+        [Required(ErrorMessage = "Address is required")]
         [Display(Name = "Street Address")]
         [RegularExpression(@"^(?:\w+\s?)+\w+$", ErrorMessage = "Street Address not valid.")]
         public string Address { get; set; }
@@ -81,6 +81,8 @@ namespace FinalProject.Models
         //required birthday property
         //need extra data annotation here
         [Required(ErrorMessage = "Birthday is required")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Birthday { get; set; }
 
     }

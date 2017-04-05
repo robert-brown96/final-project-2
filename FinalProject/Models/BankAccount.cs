@@ -9,6 +9,8 @@ using FinalProject.DAL;
 
 namespace FinalProject.Models
 {
+
+    public enum AccountTypes { Saving, Checking, IRA, Stock }
     
     public class BankAccount
     {
@@ -17,19 +19,21 @@ namespace FinalProject.Models
         [Key]
         public Int32 BankAccountID { get; set; }
 
+        [Display(Name = "Initital Deposit")]
+        [Required(ErrorMessage = "An initial deposit is required")]
+        public Decimal InitialDeposit { get; set; }
+
         //account constructor
-        public BankAccount()
+        public void CreateBankAccount()
         {
+            Balance = InitialDeposit;
+            //Transaction FirstTransaction = new Transaction();
+            ////set amount from transaction
+            //Balance = FirstTransaction.Amount;
+            ////auto increment account number
+            AccountNumber = AccountUtitlities.AccountNumber + BankAccountID;
+
             
-
-            Transaction FirstTransaction = new Transaction();
-            //set amount from transaction
-            Balance = FirstTransaction.Amount;
-            //auto increment account number
-            AccountNumber = AccountUtitlities.AccountNumber + 1;
-            AccountType = AccountUtitlities.SetupAccount(AccountType, Name);
-
-
         }
 
         
@@ -48,7 +52,7 @@ namespace FinalProject.Models
         public Decimal Balance { get; set; }
 
 
-        public string AccountType { get; }
+        public AccountTypes? AccountType { get; set; }
 
     
         //link to transactions
