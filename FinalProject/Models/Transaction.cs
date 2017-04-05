@@ -22,7 +22,7 @@ namespace FinalProject.Models
         //transaction id
         [Display(Name ="Transaction Number")]
         [Key]
-        public Int32 SavingTransactionsID { get; set; }
+        public Int32 TransactionID { get; set; }
 
 
 
