@@ -15,5 +15,7 @@ namespace FinalProject.Models
         public string PayeeType { get; set; }
 
         public string Address { get; set; }
+
+        
     }
 }
