@@ -18,12 +18,17 @@ namespace FinalProject.Models
         //cash value
         [DisplayFormat(DataFormatString = "{0:C}")]
         public Decimal CashBalance { get; set; }
-
+        /*
 
         //account number for display
         [Display(Name = "Account Number")]
-        public Int32 AccountNumber { get; set; }
-
+        private Int32 _intAccountNumber;
+        public Int32 AccountNumber
+        {
+            get { return _intAccountNumber; }
+            set { _intAccountNumber =}
+        }
+        */
         //reference to user
         public virtual AppUser User { get; set; }
     }

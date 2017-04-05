@@ -16,6 +16,6 @@ namespace FinalProject.Models
 
         public string Address { get; set; }
 
-        public 
+        
     }
 }
