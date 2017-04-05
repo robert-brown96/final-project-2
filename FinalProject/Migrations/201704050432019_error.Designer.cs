@@ -7,13 +7,13 @@ namespace FinalProject.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class account : IMigrationMetadata
+    public sealed partial class error : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(account));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(error));
         
         string IMigrationMetadata.Id
         {
-            get { return "201704032215218_account"; }
+            get { return "201704050432019_error"; }
         }
         
         string IMigrationMetadata.Source

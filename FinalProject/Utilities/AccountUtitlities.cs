@@ -35,8 +35,16 @@ namespace FinalProject.Utilities
                     
         }
 
+       
+
         //account number property
-        public static Int32 AccountNumber = 1000000;
+        static Int32 _intAccountNumber;
+
+        public static Int32 AccountNumber
+        {
+            get { return _intAccountNumber; }
+            set { _intAccountNumber += 1; }
+        }
  
     }
 }
