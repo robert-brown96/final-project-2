@@ -224,6 +224,10 @@
     <Compile Include="Migrations\201704032311173_new.Designer.cs">
       <DependentUpon>201704032311173_new.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704050432019_error.cs" />
+    <Compile Include="Migrations\201704050432019_error.Designer.cs">
+      <DependentUpon>201704050432019_error.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BankAccount.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -289,6 +293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704032311173_new.resx">
       <DependentUpon>201704032311173_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704050432019_error.resx">
+      <DependentUpon>201704050432019_error.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
