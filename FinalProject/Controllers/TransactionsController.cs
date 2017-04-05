@@ -47,7 +47,7 @@ namespace FinalProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SavingTransactionsID,Date,Amount,type,Comments")] Transaction transaction)
+        public ActionResult Create([Bind(Include = "TransactionID,Date,Amount,type,Comments")] Transaction transaction)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace FinalProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SavingTransactionsID,Date,Amount,type,Comments")] Transaction transaction)
+        public ActionResult Edit([Bind(Include = "TransactionID,Date,Amount,type,Comments")] Transaction transaction)
         {
             if (ModelState.IsValid)
             {

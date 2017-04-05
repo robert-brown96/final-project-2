@@ -41,7 +41,9 @@
             @Html.DisplayFor(modelItem => item.Comments)
         </td>
         <td>
-            @Html.ActionLink("Details", "Details", new { id=item.SavingTransactionsID }) |
+            @Html.ActionLink("Edit", "Edit", new { id=item.TransactionID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TransactionID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TransactionID })
         </td>
     </tr>
 }
