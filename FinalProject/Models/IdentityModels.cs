@@ -12,6 +12,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FinalProject.Models
 {
@@ -64,6 +65,8 @@ namespace FinalProject.Models
 
         //account foreign key
         public virtual List<BankAccount> Account { get; set; }
+
+        
 
 
         //This method allows you to create a new user
