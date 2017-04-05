@@ -35,17 +35,12 @@ namespace FinalProject.Utilities
                     
         }
 
-       
 
-        //account number property
-        static Int32 _intAccountNumber;
 
-        public static Int32 AccountNumber
-        {
-            get { return _intAccountNumber; }
-            set { _intAccountNumber += 1; }
-        }
- 
+
+
+        public static Int32 AccountNumber;
+        
     }
 }
  
