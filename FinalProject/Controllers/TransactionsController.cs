@@ -56,8 +56,19 @@ namespace FinalProject.Controllers
         public ActionResult Create([Bind(Include = "TransactionID,Date,Amount,type,Comments")] Transaction transaction, Int32 BankAccountID)
         {
             BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
-            decimal RetrieveBalance = SelectedAccount.Balance;
-            decimal balance = transaction.ChangeAmount(RetrieveBalance);
+            decimal Balance = SelectedAccount.Balance;
+            if (transaction.type == Types.Withdraw)
+            {
+                Balance = Balance - transaction.Amount;
+            }
+            else if (transaction.type == Types.Deposit)
+            {
+                Balance = Balance + transaction.Amount;
+            }
+            else
+            {
+                //insert transfer logic
+            }
 
             if (ModelState.IsValid)
             {
