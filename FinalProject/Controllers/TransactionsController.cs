@@ -21,6 +21,12 @@ namespace FinalProject.Controllers
             return View(db.Transactions.ToList());
         }
 
+        // GET: Transactions
+        public ActionResult Summary()
+        {
+            return View(db.Transactions.ToList());
+        }
+
         // GET: Transactions/Details/5
         public ActionResult Details(int? id)
         {
@@ -47,15 +53,18 @@ namespace FinalProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TransactionID,Date,Amount,type,Comments")] Transaction transaction)
+        public ActionResult Create([Bind(Include = "TransactionID,Date,Amount,type,Comments")] Transaction transaction, Int32 BankAccountID)
         {
+            BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
+            decimal RetrieveBalance = SelectedAccount.Balance;
+            decimal balance = transaction.ChangeAmount(RetrieveBalance);
+
             if (ModelState.IsValid)
             {
                 db.Transactions.Add(transaction);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(transaction);
         }
 

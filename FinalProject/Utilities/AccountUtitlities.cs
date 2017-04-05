@@ -6,6 +6,7 @@ using FinalProject.Models;
 
 namespace FinalProject.Utilities
 {
+
     public static class AccountUtitlities
     {
         //static class for validation and other misc items
@@ -36,11 +37,12 @@ namespace FinalProject.Utilities
         }
 
 
+        public static Int32 AccountNumber = 1000000;
 
 
 
-        public static Int32 AccountNumber;
-        
+
+
     }
 }
  

@@ -31,7 +31,7 @@ namespace FinalProject.Models
             ////set amount from transaction
             //Balance = FirstTransaction.Amount;
             ////auto increment account number
-            AccountNumber = AccountUtitlities.AccountNumber;
+            AccountNumber = AccountUtitlities.AccountNumber + BankAccountID;
 
             
         }

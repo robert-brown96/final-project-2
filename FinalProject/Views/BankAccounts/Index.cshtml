@@ -12,10 +12,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.InitialDeposit)
+            @Html.DisplayNameFor(Model => Model.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.AccountType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountNumber)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Balance)
@@ -26,10 +29,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.InitialDeposit)
+            @Html.ActionLink(@Html.DisplayFor(modelItem => item.Name).ToHtmlString(),"Summary","Transactions")
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => item.AccountType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccountNumber)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Balance)
