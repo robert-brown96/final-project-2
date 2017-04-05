@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using FinalProject.Models;
+using FinalProject.DAL;
 
 namespace FinalProject.Utilities
 {
@@ -11,7 +12,7 @@ namespace FinalProject.Utilities
     {
         //static class for validation and other misc items
 
-
+        
         
         //list for account types
         public static List<string> AccountTypes()
