@@ -12,9 +12,11 @@ namespace FinalProject.Migrations
                 c => new
                     {
                         BankAccountID = c.Int(nullable: false, identity: true),
+                        InitialDeposit = c.Decimal(nullable: false, precision: 18, scale: 2),
                         AccountNumber = c.Int(nullable: false),
                         Name = c.String(),
                         Balance = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        AccountType = c.Int(nullable: false),
                         AppUser_Id = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.BankAccountID)
@@ -27,7 +29,6 @@ namespace FinalProject.Migrations
                     {
                         Id = c.String(nullable: false, maxLength: 128),
                         FName = c.String(nullable: false),
-                        Phone = c.String(nullable: false),
                         LName = c.String(nullable: false),
                         Address = c.String(nullable: false),
                         Zip = c.String(nullable: false),

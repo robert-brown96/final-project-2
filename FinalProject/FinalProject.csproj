@@ -196,37 +196,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703301810189_Initial.cs" />
-    <Compile Include="Migrations\201703301810189_Initial.Designer.cs">
-      <DependentUpon>201703301810189_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704021918586_Initial1.cs" />
-    <Compile Include="Migrations\201704021918586_Initial1.Designer.cs">
-      <DependentUpon>201704021918586_Initial1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704031839498_Initial2.cs" />
-    <Compile Include="Migrations\201704031839498_Initial2.Designer.cs">
-      <DependentUpon>201704031839498_Initial2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704031902072_Initial3.cs" />
-    <Compile Include="Migrations\201704031902072_Initial3.Designer.cs">
-      <DependentUpon>201704031902072_Initial3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704032131505_migration1.cs" />
-    <Compile Include="Migrations\201704032131505_migration1.Designer.cs">
-      <DependentUpon>201704032131505_migration1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704032215218_account.cs" />
-    <Compile Include="Migrations\201704032215218_account.Designer.cs">
-      <DependentUpon>201704032215218_account.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704032311173_new.cs" />
-    <Compile Include="Migrations\201704032311173_new.Designer.cs">
-      <DependentUpon>201704032311173_new.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704041703077_p.cs" />
-    <Compile Include="Migrations\201704041703077_p.Designer.cs">
-      <DependentUpon>201704041703077_p.cs</DependentUpon>
+    <Compile Include="Migrations\201704052228086_InitialSetup.cs" />
+    <Compile Include="Migrations\201704052228086_InitialSetup.Designer.cs">
+      <DependentUpon>201704052228086_InitialSetup.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201704052206246_fix_registration.cs" />
     <Compile Include="Migrations\201704052206246_fix_registration.Designer.cs">
@@ -279,29 +251,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703301810189_Initial.resx">
-      <DependentUpon>201703301810189_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704021918586_Initial1.resx">
-      <DependentUpon>201704021918586_Initial1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704031839498_Initial2.resx">
-      <DependentUpon>201704031839498_Initial2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704031902072_Initial3.resx">
-      <DependentUpon>201704031902072_Initial3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704032131505_migration1.resx">
-      <DependentUpon>201704032131505_migration1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704032215218_account.resx">
-      <DependentUpon>201704032215218_account.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704032311173_new.resx">
-      <DependentUpon>201704032311173_new.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704041703077_p.resx">
-      <DependentUpon>201704041703077_p.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704052228086_InitialSetup.resx">
+      <DependentUpon>201704052228086_InitialSetup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704052206246_fix_registration.resx">
       <DependentUpon>201704052206246_fix_registration.cs</DependentUpon>
