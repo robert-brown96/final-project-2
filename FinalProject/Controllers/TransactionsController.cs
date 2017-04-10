@@ -9,6 +9,10 @@ using System.Web.Mvc;
 using FinalProject.DAL;
 using FinalProject.Models;
 
+//*******************************************************
+//ELIZABETH HAS MADE CHANGES TO THIS. PLEASE DON'T DELETE
+//*******************************************************
+
 namespace FinalProject.Controllers
 {
     public class TransactionsController : Controller
@@ -45,6 +49,7 @@ namespace FinalProject.Controllers
         // GET: Transactions/Create
         public ActionResult Create()
         {
+            ViewBag.AllAccounts = GetAllAccounts();
             return View();
         }
 
@@ -55,27 +60,36 @@ namespace FinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "TransactionID,Date,Amount,type,Comments")] Transaction transaction, Int32 BankAccountID)
         {
+            //find selected account
             BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
-            decimal Balance = SelectedAccount.Balance;
+
+            //associate with transaction
+            transaction.Accounts = SelectedAccount;
+
+            Decimal Balance = SelectedAccount.Balance;
             if (transaction.type == Types.Withdraw)
             {
                 Balance = Balance - transaction.Amount;
+                SelectedAccount.Balance = Balance;
             }
             else if (transaction.type == Types.Deposit)
             {
                 Balance = Balance + transaction.Amount;
+                SelectedAccount.Balance = Balance;
             }
             else
             {
                 //insert transfer logic
             }
-
+            
             if (ModelState.IsValid)
             {
                 db.Transactions.Add(transaction);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            ViewBag.AllAccounts = GetAllAccounts(transaction);
             return View(transaction);
         }
 
@@ -91,6 +105,7 @@ namespace FinalProject.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.AllAccounts = GetAllAccounts(transaction);
             return View(transaction);
         }
 
@@ -99,14 +114,35 @@ namespace FinalProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TransactionID,Date,Amount,type,Comments")] Transaction transaction)
+        public ActionResult Edit([Bind(Include = "TransactionID,Date,Amount,type,Comments")] Transaction transaction, Int32 BankAccountID)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(transaction).State = EntityState.Modified;
+                //find associated transaction
+
+                Transaction transactiontoChange = db.Transactions.Find(transaction.TransactionID);
+
+                //change Account if necessary 
+                if (transactiontoChange.Accounts.BankAccountID != BankAccountID)
+                {
+                    //find account
+                    BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
+
+                    transactiontoChange.Accounts = SelectedAccount;
+                }
+                //update all other fields
+                transactiontoChange.Date = transaction.Date;
+                transactiontoChange.Amount = transaction.Amount;
+                transactiontoChange.type = transaction.type;
+                transactiontoChange.Comments = transaction.Comments;
+
+                db.Entry(transactiontoChange).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            //re-populate list
+            ViewBag.AllAccounts = GetAllAccounts(transaction);
             return View(transaction);
         }
 
@@ -143,6 +179,35 @@ namespace FinalProject.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public SelectList GetAllAccounts(Transaction transaction)
+        {
+            //populate list of Accounts
+            var query = from b in db.Accounts
+                        orderby b.AccountType
+                        select b;
+
+            List<BankAccount> allAccounts = query.ToList();
+
+            SelectList list = new SelectList(allAccounts, "BankAccountID", "Name", transaction.Accounts.BankAccountID);
+
+            return list;
+
+        }
+        public SelectList GetAllAccounts()
+        {
+            //populate list of Accounts
+            var query = from b in db.Accounts
+                        orderby b.AccountType
+                        select b;
+
+            List<BankAccount> allAccounts = query.ToList();
+
+            SelectList allAccountslist = new SelectList(allAccounts, "BankAccountID", "Name");
+
+            return allAccountslist;
+
         }
     }
 }

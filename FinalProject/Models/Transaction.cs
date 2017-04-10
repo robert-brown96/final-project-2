@@ -33,9 +33,14 @@ namespace FinalProject.Models
         public Decimal Amount { get; set; }
 
 
+        [Display(Name = "Transaction Type")]
+        [Required(ErrorMessage = "Enter the type of transaction")]
         //type of transaction
         public Types type { get; set; }
 
+        ////Description of Transaction
+        //[Display(Name = "Description of Transaction")]
+        //public string Description { get; set; }
 
         ////change amount method
         //public Decimal ChangeAmount(decimal Balance)

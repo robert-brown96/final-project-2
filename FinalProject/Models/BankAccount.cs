@@ -41,7 +41,8 @@ namespace FinalProject.Models
         [Display(Name ="Account Number")]
         public Int32 AccountNumber { get; set; }
         
-
+        
+        
         //account name
         public string Name { get; set; }
 
