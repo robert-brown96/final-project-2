@@ -60,6 +60,7 @@ namespace FinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "TransactionID,Date,Amount,type,Comments")] Transaction transaction, Int32 BankAccountID)
         {
+            //NOTE: THIS CODE WAS ADDED
             //find selected account
             BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
 
@@ -79,7 +80,7 @@ namespace FinalProject.Controllers
             }
             else
             {
-                //insert transfer logic
+                //TODO: insert transfer logic
             }
             
             if (ModelState.IsValid)
@@ -89,6 +90,7 @@ namespace FinalProject.Controllers
                 return RedirectToAction("Index");
             }
 
+            //NOTE: THIS CODE WAS ADDED
             ViewBag.AllAccounts = GetAllAccounts(transaction);
             return View(transaction);
         }
@@ -105,6 +107,7 @@ namespace FinalProject.Controllers
             {
                 return HttpNotFound();
             }
+            //NOTE: THIS CODE WAS ADDED
             ViewBag.AllAccounts = GetAllAccounts(transaction);
             return View(transaction);
         }
@@ -118,19 +121,63 @@ namespace FinalProject.Controllers
         {
             if (ModelState.IsValid)
             {
+                //NOTE: THIS CODE WAS ADDED
                 //find associated transaction
 
                 Transaction transactiontoChange = db.Transactions.Find(transaction.TransactionID);
 
+                //***********************************************************************************************
+                //NOTE: Balance should be impacted if we change the bank account associated  with the transaction
+                //and the amount of a transaction associated with a bank acccount. 
+                //***********************************************************************************************
                 //change Account if necessary 
                 if (transactiontoChange.Accounts.BankAccountID != BankAccountID)
                 {
-                    //find account
-                    BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
+                    BankAccount PreviousAccount = db.Accounts.Find(transactiontoChange.Accounts.BankAccountID);
 
+
+                    //associate with transaction
+                    transaction.Accounts = PreviousAccount;
+
+                    Decimal Balance = PreviousAccount.Balance;
+                    if (transaction.type == Types.Withdraw)
+                    {
+                        Balance = Balance + transaction.Amount;
+                        PreviousAccount.Balance = Balance;
+                    }
+                    else if (transaction.type == Types.Deposit)
+                    {
+                        Balance = Balance - transaction.Amount;
+                        PreviousAccount.Balance = Balance;
+                    }
+                    else
+                    {
+                        //TODO: insert transfer logic
+                    }
+
+                    //find selected account
+                    BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
                     transactiontoChange.Accounts = SelectedAccount;
+
+                    if (transaction.type == Types.Withdraw)
+                    {
+                        Balance = Balance - transaction.Amount;
+                        SelectedAccount.Balance = Balance;
+                    }
+                    else if (transaction.type == Types.Deposit)
+                    {
+                        Balance = Balance + transaction.Amount;
+                        SelectedAccount.Balance = Balance;
+                    }
+                    else
+                    {
+                        //TODO: insert transfer logic
+                    }
+
                 }
                 //update all other fields
+
+
                 transactiontoChange.Date = transaction.Date;
                 transactiontoChange.Amount = transaction.Amount;
                 transactiontoChange.type = transaction.type;
@@ -142,6 +189,7 @@ namespace FinalProject.Controllers
             }
 
             //re-populate list
+            //NOTE: THIS CODE WAS ADDED
             ViewBag.AllAccounts = GetAllAccounts(transaction);
             return View(transaction);
         }
@@ -181,6 +229,7 @@ namespace FinalProject.Controllers
             base.Dispose(disposing);
         }
 
+        //NOTE: THIS CODE WAS ADDED
         public SelectList GetAllAccounts(Transaction transaction)
         {
             //populate list of Accounts
@@ -195,6 +244,7 @@ namespace FinalProject.Controllers
             return list;
 
         }
+        //NOTE: THIS CODE WAS ADDED
         public SelectList GetAllAccounts()
         {
             //populate list of Accounts
