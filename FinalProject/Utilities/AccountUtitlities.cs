@@ -37,7 +37,8 @@ namespace FinalProject.Utilities
                     
         }
 
-
+        //Noah recommendations: Auto increment bank account here. Get largest current bank account and add one. 
+        //Call method on the controller. 
         public static Int32 AccountNumber = 1000000;
 
 

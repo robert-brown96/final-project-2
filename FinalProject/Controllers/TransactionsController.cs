@@ -13,6 +13,7 @@ using FinalProject.Models;
 //ELIZABETH HAS MADE CHANGES TO THIS. PLEASE DON'T DELETE
 //*******************************************************
 
+//Noah Recommendations: Make transactions each their own controller, and thus own models
 namespace FinalProject.Controllers
 {
     public class TransactionsController : Controller
@@ -117,7 +118,7 @@ namespace FinalProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TransactionID,Date,Amount,type,Comments")] Transaction transaction, Int32 BankAccountID)
+        public ActionResult Edit([Bind(Include = "TransactionID,Date,Amount,type,Comments")] Transaction transaction, Int32 BankAccountID)  //rename incoming ID
         {
             if (ModelState.IsValid)
             {
