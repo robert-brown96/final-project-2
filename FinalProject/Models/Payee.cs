@@ -12,10 +12,12 @@ namespace FinalProject.Models
 
         public Int32 PayeeID { get; set; }
 
+        [Required(ErrorMessage ="Payee Type is required")]
         public string PayeeType { get; set; }
 
+        [Required(ErrorMessage ="Address is required")]
         public string Address { get; set; }
 
-        
+        public virtual List<Payment> Payments { get; set; }
     }
 }

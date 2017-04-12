@@ -21,6 +21,7 @@ namespace FinalProject.DAL
         public DbSet<Stock> Stocks { get; set; }
         public DbSet<StockTransaction> StockTransactions { get; set; }
         public DbSet<Payee> Payees { get; set; }
+        public DbSet<Payment> Payments { get; set; }
 
 
         //TODO: Make sure that your connection string name is correct here.

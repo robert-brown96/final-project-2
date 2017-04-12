@@ -27,11 +27,11 @@ namespace FinalProject.Utilities
             return AccountTypeList;
         }
 
-        public static string NullName(string type)
+        public static string NullName(BankAccount account)
         {
             string Name;
 
-            Name = "Longhorn" + type;
+            Name = "Longhorn " + account.AccountType;
 
             return Name;
                     
@@ -46,6 +46,22 @@ namespace FinalProject.Utilities
             NewAccountNumber = LargestAccountNumber + 1;
 
             return NewAccountNumber;
+        }
+
+        public static Int32 SetAccountNumber(AppDbContext db, BankAccount Account)
+        {
+            Int32 account_number;
+
+
+            var query = from a in db.Accounts
+                        select a.AccountNumber;
+
+            List<int> AccountNumbers = query.ToList();
+
+            account_number = AccountNumbers.Max() + 1;
+
+            return account_number;
+
         }
 
 

@@ -39,8 +39,8 @@ namespace FinalProject.Models
         public Types type { get; set; }
 
         ////Description of Transaction
-        //[Display(Name = "Description of Transaction")]
-        //public string Description { get; set; }
+        [Display(Name = "Description of Transaction")]
+        public string Description { get; set; }
 
         ////change amount method
         //public Decimal ChangeAmount(decimal Balance)
