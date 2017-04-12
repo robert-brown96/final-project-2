@@ -10,6 +10,7 @@ using FinalProject.DAL;
 using FinalProject.Models;
 using FinalProject.Utilities;
 
+
 namespace FinalProject.Controllers
 {
     public class BankAccountsController : Controller
@@ -17,8 +18,15 @@ namespace FinalProject.Controllers
         private AppDbContext db = new AppDbContext();
 
         // GET: BankAccounts
-        public ActionResult Index()
+        public ActionResult Index(/*BankAccount bankaccount*/)
         {
+            //String currentnumber = bankaccount.AccountNumber.ToString()
+            //int startIndex = 6;
+            //int length = 4;
+            //String toshowcustomer = currentnumber.Substring(startIndex, length);
+            //ViewBag.AccountNumber = "XXXXXX" + toshowcustomer;
+            
+           
             return View(db.Accounts.ToList());
         }
 
@@ -56,10 +64,16 @@ namespace FinalProject.Controllers
             {
                 bankAccount.Name = "Longhorn " + bankAccount.AccountType;
             }
+
+
             
             if (ModelState.IsValid)
             {
+
                 bankAccount.CreateBankAccount();
+                Int32 LargestAccountNumber = db.Accounts.Select(b => b.AccountNumber).DefaultIfEmpty(999999999).Max();
+                Int32 number = Utilities.AccountUtitlities.AddAccountNumber(LargestAccountNumber);
+                bankAccount.AccountNumber = number;
                 db.Accounts.Add(bankAccount);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -116,7 +130,8 @@ namespace FinalProject.Controllers
             }
             return View(bankAccount);
         }
-
+        //Note: This isn't working. Need to change to accivate deactivate. Multiple dependencies --> won't 
+        //delete bc connected to a transaction
         // POST: BankAccounts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
