@@ -64,8 +64,9 @@ namespace FinalProject.Models
         public DateTime Birthday { get; set; }
 
         //account foreign key
-        public virtual List<BankAccount> Account { get; set; }
+        public virtual List<BankAccount> Accounts { get; set; }
 
+        public virtual List<Payment> Payments { get; set; }
         
 
 

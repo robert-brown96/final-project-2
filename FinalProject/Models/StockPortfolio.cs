@@ -27,18 +27,37 @@ namespace FinalProject.Models
         [DisplayFormat(DataFormatString = "{0:C}")]
         public Decimal CashBalance { get; set; }
 
+
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        private decimal _decStockBalance;
+        public decimal StockBalance
+        {
+            get { return _decStockBalance; }
+            set
+            {
+                //loop through all owned stocks
+                foreach (var item in StockTransactions)
+                {
+                    //temp variable for current values
+                    decimal currentValue;
+                    //multiply shares by current price
+                    currentValue = item.Shares * item.Stock.CurrentPrice;
+                    //add to stock balance
+                    _decStockBalance += currentValue;
+                }
+            }
+        }
+
+        [DisplayFormat(DataFormatString = "{0:C}")]
         //full balance
         private decimal _decBalance;
         public decimal Balance
         {
             get { return _decBalance; }
-            set
+            private set
             {
-                
-
-                
-                //here will go something to calculate balance
-
+                //add stock and cash portions
+                _decBalance = _decStockBalance + CashBalance;
             }
         }
 
