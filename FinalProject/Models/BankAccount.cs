@@ -5,6 +5,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 using FinalProject.Utilities;
 using FinalProject.DAL;
+using System.ComponentModel.DataAnnotations.Schema;
 
 
 namespace FinalProject.Models
@@ -36,7 +37,7 @@ namespace FinalProject.Models
             
         }
 
-        
+
         //account number for display
         [Display(Name ="Account Number")]
         public Int32 AccountNumber { get; set; }
