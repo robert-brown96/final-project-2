@@ -21,7 +21,7 @@ namespace FinalProject.Migrations
             u1.Zip = "78733";
             u1.Address = "1245 Lake Austin Blvd.";
             u1.PhoneNumber = "5125571146";
-            u1.Birthday = ;
+            //u1.Birthday = ;
 
         }
 
