@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using FinalProject.Models;
+using FinalProject.DAL;
 
 namespace FinalProject.Utilities
 {
+
     public static class AccountUtitlities
     {
         //static class for validation and other misc items
 
-
+        
         
         //list for account types
         public static List<string> AccountTypes()
@@ -35,12 +37,14 @@ namespace FinalProject.Utilities
                     
         }
 
+        //Noah recommendations: Auto increment bank account here. Get largest current bank account and add one. 
+        //Call method on the controller. 
+        public static Int32 AccountNumber = 1000000;
 
 
 
 
-        public static Int32 AccountNumber;
-        
+
     }
 }
  

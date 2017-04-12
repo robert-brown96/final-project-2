@@ -32,7 +32,7 @@ namespace FinalProject.Models
             ////set amount from transaction
             //Balance = FirstTransaction.Amount;
             ////auto increment account number
-            AccountNumber = AccountUtitlities.AccountNumber;
+            AccountNumber = AccountUtitlities.AccountNumber + BankAccountID;
 
             
         }
@@ -42,7 +42,8 @@ namespace FinalProject.Models
         [Display(Name ="Account Number")]
         public Int32 AccountNumber { get; set; }
         
-
+        
+        
         //account name
         public string Name { get; set; }
 

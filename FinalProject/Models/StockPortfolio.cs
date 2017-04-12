@@ -3,33 +3,48 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using FinalProject.Models;
+using System.Web.Mvc;
 using FinalProject.Utilities;
 using FinalProject.DAL;
+using System.Data.Entity;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FinalProject.Models
 {
     public class StockPortfolio
     {
 
-        //primary key
+
+
+        //primary key 
+        
         public Int32 StockPortfolioID { get; set; }
 
+        public Int32 AccountNumber { get; set; }
 
         //cash value
         [DisplayFormat(DataFormatString = "{0:C}")]
         public Decimal CashBalance { get; set; }
-        /*
 
-        //account number for display
-        [Display(Name = "Account Number")]
-        private Int32 _intAccountNumber;
-        public Int32 AccountNumber
+        //full balance
+        private decimal _decBalance;
+        public decimal Balance
         {
-            get { return _intAccountNumber; }
-            set { _intAccountNumber =}
+            get { return _decBalance; }
+            set
+            {
+                
+
+                
+                //here will go something to calculate balance
+
+            }
         }
-        */
-        //reference to user
-        public virtual AppUser User { get; set; }
+
+
+        public virtual List<StockTransaction> StockTransactions { get; set; }
+
+        
     }
 }
