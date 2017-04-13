@@ -48,7 +48,7 @@ namespace FinalProject.Utilities
             return NewAccountNumber;
         }
 
-        public static Int32 SetAccountNumber(AppDbContext db, BankAccount Account)
+        public static Int32 SetAccountNumber(AppDbContext db)
         {
             Int32 account_number;
 
@@ -56,7 +56,12 @@ namespace FinalProject.Utilities
             var query = from a in db.Accounts
                         select a.AccountNumber;
 
+            var query2 = from p in db.Portfolios
+                         select p.AccountNumber;
+
             List<int> AccountNumbers = query.ToList();
+
+            AccountNumbers.AddRange(query2.ToList());
 
             account_number = AccountNumbers.Max() + 1;
 
