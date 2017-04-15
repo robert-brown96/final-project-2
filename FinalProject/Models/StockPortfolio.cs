@@ -43,7 +43,8 @@ namespace FinalProject.Models
         }
 
 
-        public virtual List<StockTransaction> StockTransactions { get; set; }
+        // TODO: get this working
+        //public virtual List<StockTransaction> StockTransactions { get; set; }
 
         
     }
