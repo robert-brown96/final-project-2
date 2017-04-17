@@ -27,11 +27,11 @@ namespace FinalProject.Utilities
             return AccountTypeList;
         }
 
-        public static string NullName(string type)
+        public static string NullName(BankAccount account)
         {
             string Name;
 
-            Name = "Longhorn" + type;
+            Name = "Longhorn " + account.AccountType;
 
             return Name;
                     
@@ -39,7 +39,35 @@ namespace FinalProject.Utilities
 
         //Noah recommendations: Auto increment bank account here. Get largest current bank account and add one. 
         //Call method on the controller. 
-        public static Int32 AccountNumber = 1000000;
+        //public static Int32 AccountNumber = 1000000000;
+        public static Int32 AddAccountNumber(Int32 LargestAccountNumber)
+        {
+            Int32 NewAccountNumber;
+            NewAccountNumber = LargestAccountNumber + 1;
+
+            return NewAccountNumber;
+        }
+
+        public static Int32 SetAccountNumber(AppDbContext db)
+        {
+            Int32 account_number;
+
+
+            var query = from a in db.Accounts
+                        select a.AccountNumber;
+
+            var query2 = from p in db.Portfolios
+                         select p.AccountNumber;
+
+            List<int> AccountNumbers = query.ToList();
+
+            AccountNumbers.AddRange(query2.ToList());
+
+            account_number = AccountNumbers.Max() + 1;
+
+            return account_number;
+
+        }
 
 
 

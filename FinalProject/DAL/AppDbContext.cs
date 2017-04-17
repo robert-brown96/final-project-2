@@ -17,10 +17,14 @@ namespace FinalProject.DAL
         public DbSet<BankAccount> Accounts { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
 
-        public DbSet<StockPortfolio> Portfolio { get; set; }
-        //public DbSet<Stock> Stocks { get; set; }
-        //public DbSet<StockTransaction> StockTransactions { get; set; }
+        public DbSet<StockPortfolio> Portfolios { get; set; }
+        public DbSet<Stock> Stocks { get; set; }
+        public DbSet<StockTransaction> StockTransactions { get; set; }
         public DbSet<Payee> Payees { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<Deposit> Deposits { get; set; }
+        public DbSet<Withdraw> Withdrawals { get; set; }
+        public DbSet<Transfer> Transfers { get; set; }
 
 
         //TODO: Make sure that your connection string name is correct here.

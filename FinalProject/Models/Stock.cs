@@ -19,7 +19,9 @@ namespace FinalProject.Models
 
         public decimal Fee { get; set; }
 
-        public List<StockTypes> StockType { get; set; }
+        public StockTypes StockType { get; set; }
+
+        public virtual List<StockTransaction> Transactions { get; set; }
 
 
     }

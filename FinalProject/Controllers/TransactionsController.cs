@@ -59,16 +59,19 @@ namespace FinalProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TransactionID,Date,Amount,type,Comments")] Transaction transaction, Int32 BankAccountID)
+        public ActionResult Create([Bind(Include = "TransactionID,Date,Amount,type,Comments")] Transaction transaction, Int32 BankAccountID, Int32 SecondBankAccountId)
         {
             //NOTE: THIS CODE WAS ADDED
             //find selected account
             BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
+            BankAccount TransfertoAccount = db.Accounts.Find(SecondBankAccountId);
 
             //associate with transaction
             transaction.Accounts = SelectedAccount;
+            transaction.Accounts = TransfertoAccount;
 
             Decimal Balance = SelectedAccount.Balance;
+            Decimal TransfertoBalance = TransfertoAccount.Balance;
             if (transaction.type == Types.Withdraw)
             {
                 Balance = Balance - transaction.Amount;
@@ -81,7 +84,10 @@ namespace FinalProject.Controllers
             }
             else
             {
-                //TODO: insert transfer logic
+                Balance = Balance - transaction.Amount;
+                SelectedAccount.Balance = Balance;
+                TransfertoBalance = TransfertoBalance + transaction.Amount;
+                TransfertoAccount.Balance = TransfertoBalance;
             }
             
             if (ModelState.IsValid)
@@ -113,6 +119,9 @@ namespace FinalProject.Controllers
             return View(transaction);
         }
 
+        //*************************
+        //NOT WORKING LOGIC 
+        //*************************
         // POST: Transactions/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.

@@ -6,17 +6,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FinalProject.Models
 {
-    //enum for transaction types
-    public enum Types { Withdraw, Deposit, Transfer }
-
-
-    public class Transaction
+    public class Deposit
     {
-        
-
         //transaction id
         [Display(Name = "Transaction Number")]
-        public Int32 TransactionID { get; set; }
+        public Int32 DepositID { get; set; }
 
 
 
@@ -33,28 +27,20 @@ namespace FinalProject.Models
         public Decimal Amount { get; set; }
 
 
-        [Display(Name = "Transaction Type")]
-        [Required(ErrorMessage = "Enter the type of transaction")]
-        //type of transaction
-        public Types type { get; set; }
+        
 
         ////Description of Transaction
         [Display(Name = "Description of Transaction")]
         public string Description { get; set; }
 
-        
+
 
 
         //other comments?
         public string Comments { get; set; }
 
         //link to the associated account
-        public virtual BankAccount Accounts { get; set; }
-
-
-
-
-
+        public virtual BankAccount Account { get; set; }
 
 
     }

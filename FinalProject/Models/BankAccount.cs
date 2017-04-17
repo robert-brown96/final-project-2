@@ -32,7 +32,7 @@ namespace FinalProject.Models
             ////set amount from transaction
             //Balance = FirstTransaction.Amount;
             ////auto increment account number
-            AccountNumber = AccountUtitlities.AccountNumber + BankAccountID;
+            //AccountNumber = AccountUtitlities.AccountNumber + BankAccountID;
 
             
         }
@@ -60,6 +60,10 @@ namespace FinalProject.Models
     
         //link to transactions
         public virtual List<Transaction> Transactions { get; set; }
+
+        public virtual List<Withdraw> Withdrawals { get; set; }
+        public virtual List<Deposit> Deposits { get; set; }
+        public virtual List<Transfer> Transfers { get; set; }
 
         //link to user
         public virtual AppUser AppUser { get; set; }
