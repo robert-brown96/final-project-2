@@ -191,6 +191,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BankAccountsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="Controllers\TransactionsController.cs" />
     <Compile Include="DAL\AppDbContext.cs" />
@@ -220,6 +221,10 @@
     <Compile Include="Migrations\201704131507034_newtransactionmodel.cs" />
     <Compile Include="Migrations\201704131507034_newtransactionmodel.Designer.cs">
       <DependentUpon>201704131507034_newtransactionmodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704131531120_i2.cs" />
+    <Compile Include="Migrations\201704131531120_i2.Designer.cs">
+      <DependentUpon>201704131531120_i2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BankAccount.cs" />
@@ -269,6 +274,9 @@
     <Content Include="Views\Transactions\Edit.cshtml" />
     <Content Include="Views\Transactions\Index.cshtml" />
     <Content Include="Views\Transactions\Summary.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -297,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704131507034_newtransactionmodel.resx">
       <DependentUpon>201704131507034_newtransactionmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704131531120_i2.resx">
+      <DependentUpon>201704131531120_i2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

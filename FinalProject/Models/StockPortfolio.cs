@@ -18,7 +18,7 @@ namespace FinalProject.Models
 
 
         //primary key 
-        [Key]
+       // [ForeignKey("User")]
         public int StockPortfolioID { get; set; }
 
         public Int32 AccountNumber { get; set; }
@@ -54,17 +54,13 @@ namespace FinalProject.Models
         public decimal Balance
         {
             get { return _decStockBalance + CashBalance; }
-            private set
-            {
-                //add stock and cash portions
-                _decBalance = _decStockBalance + CashBalance;
-            }
+            
         }
 
-        /*[ForeignKey("StockPortfolioID")]
-        [Required]
-        public virtual AppUser User { get; set; }*/
         //TODO: add 1:1 relationship
+        public virtual AppUser User { get; set; }
+
+       
         public virtual List<StockTransaction> StockTransactions { get; set; }
 
         
