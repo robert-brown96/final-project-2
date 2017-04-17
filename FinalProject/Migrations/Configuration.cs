@@ -4,6 +4,7 @@ namespace FinalProject.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using FinalProject.Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<FinalProject.DAL.AppDbContext>
     {
@@ -12,7 +13,7 @@ namespace FinalProject.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(FinalProject.DAL.AppDbContext context)
+        protected override void Seed(FinalProject.DAL.AppDbContext db)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -26,6 +27,10 @@ namespace FinalProject.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            AddPayees.AddAllPayees(db);
+
+            // attempt to seed accounts with csv connection
+            
         }
     }
 }

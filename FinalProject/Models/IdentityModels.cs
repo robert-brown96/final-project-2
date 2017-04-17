@@ -70,8 +70,8 @@ namespace FinalProject.Models
 
         //1:1 with a portfolio
         public virtual StockPortfolio Portfolio { get; set; }
-        
 
+        
 
         //This method allows you to create a new user
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<AppUser> manager)
