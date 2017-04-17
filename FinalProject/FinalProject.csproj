@@ -219,6 +219,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\CustomerData.cs" />
+    <Compile Include="Migrations\PayeeData.cs" />
     <Compile Include="Models\BankAccount.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Deposit.cs" />

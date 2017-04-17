@@ -65,8 +65,8 @@ namespace FinalProject.Models
         [Required]
         public virtual AppUser User { get; set; }*/
         //TODO: add 1:1 relationship
-        public virtual List<StockTransaction> StockTransactions { get; set; }
+        //public virtual List<StockTransaction> StockTransactions { get; set; }
 
-        
+
     }
 }

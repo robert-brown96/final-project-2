@@ -9,8 +9,11 @@ namespace FinalProject.Models
 {
     public class Payee
     {
-
+        [Key]
         public Int32 PayeeID { get; set; }
+
+        [Required(ErrorMessage = "Name is Required")]
+        public String PayeeName { get; set; }
 
         [Required(ErrorMessage ="Payee Type is required")]
         public string PayeeType { get; set; }
