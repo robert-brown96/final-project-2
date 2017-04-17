@@ -69,7 +69,7 @@ namespace FinalProject.Models
         public virtual List<Payment> Payments { get; set; }
 
         //1:1 with a portfolio
-        //public virtual StockPortfolio Portfolio { get; set; }
+        public virtual StockPortfolio Portfolio { get; set; }
         
 
 
