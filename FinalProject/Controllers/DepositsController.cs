@@ -96,15 +96,45 @@ namespace FinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "DepositID,Date,Amount,Description,Comments")] Deposit deposit, Int32 BankAccountID)
         {
-  
+            
 
             if (ModelState.IsValid)
             {
                 Deposit deposittoChange = db.Deposits.Find(deposit.DepositID);
+
+                //TODO: insert code for when amount AND bank account ID are being changed. Want the previous account
+                //to be subtracted by the original transaction amount and the new account to be added by the new transaction 
+                //amount
+                if ((deposittoChange.Account.BankAccountID != BankAccountID) && (deposittoChange.Amount != deposit.Amount))
+                {
+                    BankAccount PreviousAccount = db.Accounts.Find(deposittoChange.Account.BankAccountID);
+                    deposit.Account = PreviousAccount;
+                    Decimal Balance = PreviousAccount.Balance;
+                    //change deposit amount
+
+                    Balance = Balance - deposittoChange.Amount;
+
+                    //add new amount
+                    Balance = Balance + deposit.Amount;
+
+                    //update balance
+                    PreviousAccount.Balance = Balance;
+
+                    //update field
+                    deposittoChange.Amount = deposit.Amount;
+
+                    //find selected account
+                    BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
+                    deposittoChange.Account = SelectedAccount;
+                    Decimal NewAccountBalance = SelectedAccount.Balance;
+                    //change balance
+                    NewAccountBalance = NewAccountBalance + deposit.Amount;
+                    SelectedAccount.Balance = NewAccountBalance;
+                }
+
                 if (deposittoChange.Account.BankAccountID != BankAccountID)
                 {
                     BankAccount PreviousAccount = db.Accounts.Find(deposittoChange.Account.BankAccountID);
-
 
                     //associate with deposit
                     deposit.Account = PreviousAccount;
@@ -124,7 +154,7 @@ namespace FinalProject.Controllers
                     SelectedAccount.Balance = NewAccountBalance;
                 }
 
-                else if (deposittoChange.Amount != deposit.Amount)
+                if (deposittoChange.Amount != deposit.Amount)
                 {
                     BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
                     deposittoChange.Account = SelectedAccount;
@@ -144,12 +174,8 @@ namespace FinalProject.Controllers
 
                 }
 
-                else
-                {
-                    //TODO: insert code for when amount AND bank account ID are being changed. Want the previous account
-                    //to be subtracted by the original transaction amount and the new account to be added by the new transaction 
-                    //amount
-                }
+                
+                                                     
 
                 //change all other fields
                 deposittoChange.Date = deposit.Date;
