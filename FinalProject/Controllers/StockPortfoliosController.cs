@@ -51,7 +51,7 @@ namespace FinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "StockPortfolioID,InitialDeposit,AccountNumber,CashBalance,Name,StockBalance")] StockPortfolio stockPortfolio)
         {
-            stockPortfolio.CashBalance = stockPortfolio.InitialDeposit;
+            stockPortfolio.CreateStockPortfolio();
             stockPortfolio.AccountNumber = AccountUtitlities.SetAccountNumber(db);
             stockPortfolio.User.Id = User.Identity.GetUserId();
 

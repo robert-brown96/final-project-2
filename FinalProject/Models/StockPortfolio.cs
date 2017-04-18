@@ -15,7 +15,18 @@ namespace FinalProject.Models
     public class StockPortfolio
     {
 
+        //account constructor
+        public void CreateStockPortfolio()
+        {
+            CashBalance = InitialDeposit;
+            //Transaction FirstTransaction = new Transaction();
+            ////set amount from transaction
+            //Balance = FirstTransaction.Amount;
+            ////auto increment account number
+            //AccountNumber = AccountUtitlities.AccountNumber + BankAccountID;
 
+
+        }
 
         //primary key 
         //[Key, ForeignKey("User")]
