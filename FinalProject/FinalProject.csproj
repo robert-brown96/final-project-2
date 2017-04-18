@@ -175,8 +175,8 @@
     <EmbeddedResource Include="Migrations\201704181647495_new_fks.resx">
       <DependentUpon>201704181647495_new_fks.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704181805060_ChangeTranfersNavProp.resx">
-      <DependentUpon>201704181805060_ChangeTranfersNavProp.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704181838587_doubles.resx">
+      <DependentUpon>201704181838587_doubles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\SeedData\AccountsOnly.csv" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -210,8 +210,6 @@
     <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="Controllers\StockPortfoliosController.cs" />
     <Compile Include="Controllers\TransactionsController.cs" />
-    <Compile Include="Controllers\TransfersController.cs" />
-    <Compile Include="Controllers\WithdrawsController.cs" />
     <Compile Include="DAL\AppDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -256,9 +254,9 @@
     <Compile Include="Migrations\201704181647495_new_fks.Designer.cs">
       <DependentUpon>201704181647495_new_fks.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201704181805060_ChangeTranfersNavProp.cs" />
-    <Compile Include="Migrations\201704181805060_ChangeTranfersNavProp.Designer.cs">
-      <DependentUpon>201704181805060_ChangeTranfersNavProp.cs</DependentUpon>
+    <Compile Include="Migrations\201704181838587_doubles.cs" />
+    <Compile Include="Migrations\201704181838587_doubles.Designer.cs">
+      <DependentUpon>201704181838587_doubles.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AddAccounts.cs" />
     <Compile Include="Migrations\AddPayees.cs" />
@@ -325,16 +323,6 @@
     <Content Include="Views\StockPortfolios\Details.cshtml" />
     <Content Include="Views\StockPortfolios\Edit.cshtml" />
     <Content Include="Views\StockPortfolios\Index.cshtml" />
-    <Content Include="Views\Withdraws\Create.cshtml" />
-    <Content Include="Views\Withdraws\Delete.cshtml" />
-    <Content Include="Views\Withdraws\Details.cshtml" />
-    <Content Include="Views\Withdraws\Edit.cshtml" />
-    <Content Include="Views\Withdraws\Index.cshtml" />
-    <Content Include="Views\Transfers\Create.cshtml" />
-    <Content Include="Views\Transfers\Delete.cshtml" />
-    <Content Include="Views\Transfers\Details.cshtml" />
-    <Content Include="Views\Transfers\Edit.cshtml" />
-    <Content Include="Views\Transfers\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -26,43 +26,45 @@ namespace FinalProject.Models
         //cash value
         [DisplayFormat(DataFormatString = "{0:C}")]
         [Display(Name ="Cash Balance")]
-        public Decimal CashBalance { get; set; }
+        public Double CashBalance { get; set; }
 
         [Display(Name = "Portfolio Name")]
         public string Name { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:C}")]
         [Display(Name ="Stock Balance")]
-        private decimal _decStockBalance;
-        public decimal StockBalance
+        private Double _decStockBalance;
+        public Double StockBalance
         {
-            get { return _decStockBalance; }
-            set
+            get
             {
                 //loop through all owned stocks
                 foreach (var item in StockTransactions)
                 {
-                    decimal fee = item.Stock.Fee;
+                    double fee = item.Stock.Fee;
                     //temp variable for current values
-                    decimal currentValue;
+                    double currentValue;
                     //multiply shares by current price
                     currentValue = item.Shares * item.Stock.CurrentPrice - fee;
                     //add to stock balance
                     _decStockBalance += currentValue;
                 }
+            return _decStockBalance;
+            
+            
             }
         }
 
         [DisplayFormat(DataFormatString = "{0:C}")]
         [Display(Name ="Portfolio Balance")]
-        public decimal Balance
+        public Double Balance
         {
             get { return _decStockBalance + CashBalance; }           
         }
 
         [Display(Name = "Initital Deposit")]
         [Required(ErrorMessage = "An initial deposit is required")]
-        public decimal InitialDeposit { get; set; }
+        public double InitialDeposit { get; set; }
 
         //TODO: add 1:1 relationship
         [Required]
