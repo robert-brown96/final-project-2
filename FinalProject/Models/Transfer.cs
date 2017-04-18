@@ -41,8 +41,8 @@ namespace FinalProject.Models
         public string Comments { get; set; }
 
         //link to the associated account
-        public virtual BankAccount transferTo { get; set; }
+        public virtual BankAccount Account { get; set; }
 
-        public virtual BankAccount transferFrom { get; set; }
+        
     }
 }
