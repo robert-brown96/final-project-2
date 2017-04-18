@@ -42,10 +42,11 @@ namespace FinalProject.Models
                 //loop through all owned stocks
                 foreach (var item in StockTransactions)
                 {
+                    decimal fee = item.Stock.Fee;
                     //temp variable for current values
                     decimal currentValue;
                     //multiply shares by current price
-                    currentValue = item.Shares * item.Stock.CurrentPrice;
+                    currentValue = item.Shares * item.Stock.CurrentPrice - fee;
                     //add to stock balance
                     _decStockBalance += currentValue;
                 }
