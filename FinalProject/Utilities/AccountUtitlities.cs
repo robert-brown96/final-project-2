@@ -11,9 +11,12 @@ namespace FinalProject.Utilities
     public static class AccountUtitlities
     {
         //static class for validation and other misc items
+        //glyphicon-wrench
+        //glyphicon-comment
+        //glyphicon-user
+        //glyphicon-th-list
 
-        
-        
+
         //list for account types
         public static List<string> AccountTypes()
         {

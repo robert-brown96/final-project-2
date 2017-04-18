@@ -30,6 +30,13 @@ namespace FinalProject.Controllers
             return View(db.Accounts.ToList());
         }
 
+        public ActionResult Confirmation()
+        {
+            return View();
+        }
+
+
+
         // GET: BankAccounts/Details/5
         public ActionResult Details(int? id)
         {
@@ -80,7 +87,7 @@ namespace FinalProject.Controllers
                 bankAccount.AccountNumber = number;
                 db.Accounts.Add(bankAccount);
                 db.SaveChanges();
-                return RedirectToAction("ApplyConfirmed");
+                return RedirectToAction("Confirmation","BankAccounts");
             }
 
             ViewBag.allAccountTypes = GetAllAccountTypes();
