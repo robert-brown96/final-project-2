@@ -1,7 +1,34 @@
-﻿
+﻿@model FinalProject.Models.BankAccount
 @{
     ViewBag.Title = "Confirmation";
 }
 
-<h2>Confirmation</h2>
+<h2>Bank Account Successfully Created!</h2>
+
+<a class="btn btn-primary" href="/Home/Index">
+    Home
+    <div class="input-group">
+        <div class="input-group-addon">
+            <span class="glyphicon glyphicon-home"></span>
+        </div>
+    </div>
+</a>
+
+<a class="btn btn-success" href="/BankAccounts/Index">
+    Account Home
+    <div class="input-group">
+        <div class="input-group-addon">
+            <span class="glyphicon glyphicon-th-list"></span>
+        </div>
+    </div>
+</a>
+
+<a class="btn btn-danger" href="/Manage/Index">
+    Account Manager
+    <div class="input-group">
+        <div class="input-group-addon">
+            <span class="glyphicon glyphicon-user"></span>
+        </div>
+    </div>
+</a>
 
