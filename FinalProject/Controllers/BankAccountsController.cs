@@ -80,7 +80,7 @@ namespace FinalProject.Controllers
                 bankAccount.AccountNumber = number;*/
                 db.Accounts.Add(bankAccount);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ApplyConfirmed");
             }
 
             ViewBag.allAccountTypes = GetAllAccountTypes();
