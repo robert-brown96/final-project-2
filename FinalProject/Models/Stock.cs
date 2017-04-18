@@ -29,7 +29,7 @@ namespace FinalProject.Models
              
         }
 
-        public decimal Fee { get; set; }
+        public Double Fee { get; set; }
 
         public StockTypes StockType { get; set; }
 

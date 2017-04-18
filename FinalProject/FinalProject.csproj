@@ -175,6 +175,9 @@
     <EmbeddedResource Include="Migrations\201704181647495_new_fks.resx">
       <DependentUpon>201704181647495_new_fks.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704181838587_doubles.resx">
+      <DependentUpon>201704181838587_doubles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\SeedData\AccountsOnly.csv" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -250,6 +253,10 @@
     <Compile Include="Migrations\201704181647495_new_fks.cs" />
     <Compile Include="Migrations\201704181647495_new_fks.Designer.cs">
       <DependentUpon>201704181647495_new_fks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704181838587_doubles.cs" />
+    <Compile Include="Migrations\201704181838587_doubles.Designer.cs">
+      <DependentUpon>201704181838587_doubles.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AddAccounts.cs" />
     <Compile Include="Migrations\AddPayees.cs" />
