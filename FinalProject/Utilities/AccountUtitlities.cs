@@ -22,7 +22,7 @@ namespace FinalProject.Utilities
             AccountTypeList.Add("Savings");
             AccountTypeList.Add("Checking");
             AccountTypeList.Add("IRA");
-            AccountTypeList.Add("Stock");         
+           // AccountTypeList.Add("Stock");         
 
             return AccountTypeList;
         }
@@ -35,6 +35,16 @@ namespace FinalProject.Utilities
 
             return Name;
                     
+        }
+
+        public static string NullName(StockPortfolio portfolio)
+        {
+            string Name;
+
+            Name = "Longhorn Portfolio";
+
+            return Name;
+
         }
 
         //Noah recommendations: Auto increment bank account here. Get largest current bank account and add one. 

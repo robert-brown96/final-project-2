@@ -43,5 +43,10 @@ namespace FinalProject.Models
         //link to the associated account
         public virtual BankAccount Account { get; set; }
 
+
+        //TODO: the controller will have to be modified 
+        //we should be able to overload the create and edit methods to recognize stock accounts
+        public virtual StockPortfolio Portfolio { get; set; }
+
     }
 }
