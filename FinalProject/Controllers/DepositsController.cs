@@ -96,7 +96,7 @@ namespace FinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "DepositID,Date,Amount,Description,Comments")] Deposit deposit, Int32 BankAccountID)
         {
-  
+            
 
             if (ModelState.IsValid)
             {
