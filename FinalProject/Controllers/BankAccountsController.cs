@@ -82,9 +82,9 @@ namespace FinalProject.Controllers
             {
 
                 bankAccount.CreateBankAccount();
-                Int32 LargestAccountNumber = db.Accounts.Select(b => b.AccountNumber).DefaultIfEmpty(999999999).Max();
+                /*Int32 LargestAccountNumber = db.Accounts.Select(b => b.AccountNumber).DefaultIfEmpty(999999999).Max();
                 Int32 number = AccountUtitlities.AddAccountNumber(LargestAccountNumber);
-                bankAccount.AccountNumber = number;
+                bankAccount.AccountNumber = number;*/
                 db.Accounts.Add(bankAccount);
                 db.SaveChanges();
                 return RedirectToAction("Confirmation","BankAccounts");

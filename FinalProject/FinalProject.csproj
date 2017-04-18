@@ -169,8 +169,13 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <EmbeddedResource Include="Migrations\201704181637055_1-1.resx">
+      <DependentUpon>201704181637055_1-1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704181647495_new_fks.resx">
+      <DependentUpon>201704181647495_new_fks.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\SeedData\AccountsOnly.csv" />
-    <Content Include="App_Code\GlyphIcon.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -200,6 +205,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
+    <Compile Include="Controllers\StockPortfoliosController.cs" />
     <Compile Include="Controllers\TransactionsController.cs" />
     <Compile Include="DAL\AppDbContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -236,6 +242,14 @@
     <Compile Include="Migrations\201704171955300_fixpayee.cs" />
     <Compile Include="Migrations\201704171955300_fixpayee.Designer.cs">
       <DependentUpon>201704171955300_fixpayee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704181637055_1-1.cs" />
+    <Compile Include="Migrations\201704181637055_1-1.Designer.cs">
+      <DependentUpon>201704181637055_1-1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704181647495_new_fks.cs" />
+    <Compile Include="Migrations\201704181647495_new_fks.Designer.cs">
+      <DependentUpon>201704181647495_new_fks.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AddAccounts.cs" />
     <Compile Include="Migrations\AddPayees.cs" />
@@ -295,7 +309,11 @@
     <Content Include="Views\Deposits\Details.cshtml" />
     <Content Include="Views\Deposits\Edit.cshtml" />
     <Content Include="Views\Deposits\Index.cshtml" />
-    <Content Include="Views\BankAccounts\Confirmation.cshtml" />
+    <Content Include="Views\StockPortfolios\Create.cshtml" />
+    <Content Include="Views\StockPortfolios\Delete.cshtml" />
+    <Content Include="Views\StockPortfolios\Details.cshtml" />
+    <Content Include="Views\StockPortfolios\Edit.cshtml" />
+    <Content Include="Views\StockPortfolios\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

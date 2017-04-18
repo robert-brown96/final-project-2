@@ -25,10 +25,14 @@ namespace FinalProject.Models
 
         //cash value
         [DisplayFormat(DataFormatString = "{0:C}")]
+        [Display(Name ="Cash Balance")]
         public Decimal CashBalance { get; set; }
 
+        [Display(Name = "Portfolio Name")]
+        public string Name { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:C}")]
+        [Display(Name ="Stock Balance")]
         private decimal _decStockBalance;
         public decimal StockBalance
         {
@@ -49,13 +53,15 @@ namespace FinalProject.Models
         }
 
         [DisplayFormat(DataFormatString = "{0:C}")]
-        //full balance
-        private decimal _decBalance;
+        [Display(Name ="Portfolio Balance")]
         public decimal Balance
         {
-            get { return _decStockBalance + CashBalance; }
-            
+            get { return _decStockBalance + CashBalance; }           
         }
+
+        [Display(Name = "Initital Deposit")]
+        [Required(ErrorMessage = "An initial deposit is required")]
+        public decimal InitialDeposit { get; set; }
 
         //TODO: add 1:1 relationship
         [Required]
@@ -64,6 +70,10 @@ namespace FinalProject.Models
        
         public virtual List<StockTransaction> StockTransactions { get; set; }
 
+
+        public virtual List<Withdraw> Withdrawals { get; set; }
+        public virtual List<Deposit> Deposits { get; set; }
         
+
     }
 }
