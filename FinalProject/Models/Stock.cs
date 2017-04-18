@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using FinalProject.Utilities;
 
 namespace FinalProject.Models
 {
@@ -11,17 +12,30 @@ namespace FinalProject.Models
         //primary key
         public int StockID { get; set; }
 
-        public string Ticker { get; set; }
+        public string Symbol { get; set; }
 
         public string Name { get; set; }
 
-        public Decimal CurrentPrice { get; set; }
+
+        private Double _decCurrentPrice;
+        public Double CurrentPrice
+        { 
+            get
+            {
+                StockQuote stock = GetQuote.GetStock(Symbol);
+                _decCurrentPrice = stock.PreviousClose;
+                return _decCurrentPrice;
+            }
+             
+        }
 
         public decimal Fee { get; set; }
 
         public StockTypes StockType { get; set; }
 
-        public virtual List<StockTransaction> Transactions { get; set; }
+       
+
+       
 
 
     }
