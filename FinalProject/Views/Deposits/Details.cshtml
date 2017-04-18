@@ -10,12 +10,17 @@
     <h4>Deposit</h4>
     <hr />
     <dl class="dl-horizontal">
+
         <dt>
-            @Html.DisplayNameFor(model => model.Date)
+            Transaction Type: Deposit
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepositID)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Date)
+            @Html.DisplayFor(model => model.DepositID)
         </dd>
 
         <dt>
@@ -41,6 +46,7 @@
         <dd>
             @Html.DisplayFor(model => model.Comments)
         </dd>
+
 
     </dl>
 </div>

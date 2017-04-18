@@ -15,8 +15,6 @@ namespace FinalProject.Models
     public class StockPortfolio
     {
 
-
-
         //primary key 
         //[Key, ForeignKey("User")]
         public int StockPortfolioID { get; set; }

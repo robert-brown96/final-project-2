@@ -69,6 +69,8 @@ namespace FinalProject.Controllers
             return View(withdraw);
         }
 
+
+
         // GET: Withdraws/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -84,21 +86,119 @@ namespace FinalProject.Controllers
             return View(withdraw);
         }
 
-        // POST: Withdraws/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "WithdrawID,Date,Amount,Description,Comments")] Withdraw withdraw)
+        public ActionResult Edit([Bind(Include = "WithdrawID,Date,Amount,Description,Comments")] Withdraw withdraw, Int32 BankAccountID)
         {
+
+
             if (ModelState.IsValid)
             {
-                db.Entry(withdraw).State = EntityState.Modified;
+                Withdraw withdrawtoChange = db.Withdrawals.Find(withdraw.WithdrawID);
+
+                //TODO: insert code for when amount AND bank account ID are being changed. Want the previous account
+                //to be subtracted by the original transaction amount and the new account to be added by the new transaction 
+                //amount
+                if ((withdrawtoChange.Account.BankAccountID != BankAccountID) && (withdrawtoChange.Amount != withdraw.Amount))
+                {
+                    BankAccount PreviousAccount = db.Accounts.Find(withdrawtoChange.Account.BankAccountID);
+                    withdraw.Account = PreviousAccount;
+                    Decimal Balance = PreviousAccount.Balance;
+                    //change withdraw amount
+
+                    Balance = Balance + withdrawtoChange.Amount;
+
+                    //add new amount
+                    Balance = Balance - withdraw.Amount;
+
+                    //update balance
+                    PreviousAccount.Balance = Balance;
+
+                    //update field
+                    withdrawtoChange.Amount = withdraw.Amount;
+
+                    //find selected account
+                    BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
+                    withdrawtoChange.Account = SelectedAccount;
+                    Decimal NewAccountBalance = SelectedAccount.Balance;
+                    //change balance
+                    NewAccountBalance = NewAccountBalance - withdraw.Amount;
+                    SelectedAccount.Balance = NewAccountBalance;
+                }
+
+                if (withdrawtoChange.Account.BankAccountID != BankAccountID)
+                {
+                    BankAccount PreviousAccount = db.Accounts.Find(withdrawtoChange.Account.BankAccountID);
+
+                    //associate with withdraw
+                    withdraw.Account = PreviousAccount;
+
+                    //change the balance of the previous account
+                    Decimal Balance = PreviousAccount.Balance;
+                    Balance = Balance + withdraw.Amount;
+                    PreviousAccount.Balance = Balance;
+
+
+                    //find selected account
+                    BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
+                    withdrawtoChange.Account = SelectedAccount;
+                    Decimal NewAccountBalance = SelectedAccount.Balance;
+                    //change balance
+                    NewAccountBalance = NewAccountBalance + withdraw.Amount;
+                    SelectedAccount.Balance = NewAccountBalance;
+                }
+
+                if (withdrawtoChange.Amount != withdraw.Amount)
+                {
+                    BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
+                    withdrawtoChange.Account = SelectedAccount;
+                    Decimal Balance = SelectedAccount.Balance;
+
+                    //Subtract by previous amount
+                    Balance = Balance + withdrawtoChange.Amount;
+
+                    //add new amount
+                    Balance = Balance - withdraw.Amount;
+
+                    //update balance
+                    SelectedAccount.Balance = Balance;
+
+                    //update field
+                    withdrawtoChange.Amount = withdraw.Amount;
+
+                }
+
+
+
+
+                //change all other fields
+                withdrawtoChange.Date = withdraw.Date;
+                withdrawtoChange.Description = withdraw.Description;
+                withdrawtoChange.Comments = withdraw.Comments;
+
+                db.Entry(withdrawtoChange).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.AllAccounts = GetAllAccounts(withdraw);
             return View(withdraw);
         }
+        //// POST: Withdraws/Edit/5
+        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit([Bind(Include = "WithdrawID,Date,Amount,Description,Comments")] Withdraw withdraw)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Entry(withdraw).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(withdraw);
+        //}
 
         // GET: Withdraws/Delete/5
         public ActionResult Delete(int? id)

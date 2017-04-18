@@ -4,7 +4,33 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<a class="btn btn-success" href="/Deposit/Create">
+    Home
+    <div class="input-group">
+        <div class="input-group-addon">
+            <span class="glyphicon glyphicon-usd"></span>
+        </div>
+    </div>
+</a>
+
+<a class="btn btn-danger" href="/Withdraw/Create">
+    Account Home
+    <div class="input-group">
+        <div class="input-group-addon">
+            <span class="glyphicon glyphicon-th-usd"></span>
+        </div>
+    </div>
+</a>
+
+<a class="btn btn-primary" href="/Transfer/Create">
+    Account Manager
+    <div class="input-group">
+        <div class="input-group-addon">
+            <span class="glyphicon glyphicon-sort"></span>
+        </div>
+    </div>
+</a>
+<h2>My Bank Accounts</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
