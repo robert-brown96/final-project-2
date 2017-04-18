@@ -48,7 +48,7 @@ namespace FinalProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TransferID,Date,Amount,Description,Comments")] Transfer transfer, BankAccount BankAccountID, BankAccount SecondBankAccountID)
+        public ActionResult Create([Bind(Include = "TransferID,Date,Amount,Description,Comments")] Transfer transfer, Int32 BankAccountID, Int32 SecondBankAccountID)
         {
             //NOTE: THIS CODE WAS ADDED
             //find selected account
