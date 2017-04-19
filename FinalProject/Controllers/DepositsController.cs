@@ -12,11 +12,9 @@ using FinalProject.Utilities;
 
 namespace FinalProject.Controllers
 {
-
     public class DepositsController : Controller
     {
         private AppDbContext db = new AppDbContext();
-
 
         // GET: Deposits
         public ActionResult Index()
@@ -53,6 +51,7 @@ namespace FinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "DepositID,Date,Amount,Description,Comments")] Deposit deposit, Int32 BankAccountID)
         {
+
             //find selected account
             BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
 
@@ -66,7 +65,6 @@ namespace FinalProject.Controllers
 
             Balance = Balance + deposit.Amount;
             SelectedAccount.Balance = Balance;
-
             if (ModelState.IsValid)
             {
                 db.Deposits.Add(deposit);
@@ -101,8 +99,6 @@ namespace FinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "DepositID,Date,Amount,Description,Comments")] Deposit deposit, Int32 BankAccountID)
         {
-            
-
             if (ModelState.IsValid)
             {
                 Deposit deposittoChange = db.Deposits.Find(deposit.DepositID);
@@ -125,8 +121,7 @@ namespace FinalProject.Controllers
                     //update balance
                     PreviousAccount.Balance = Balance;
 
-                    //update field
-                    deposittoChange.Amount = deposit.Amount;
+                    
 
                     //find selected account
                     BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
@@ -173,21 +168,18 @@ namespace FinalProject.Controllers
 
                     //update balance
                     SelectedAccount.Balance = Balance;
+                    
 
-                    //update field
-                    deposittoChange.Amount = deposit.Amount;
 
                 }
 
-                
-                                                     
-
                 //change all other fields
+                deposittoChange.Amount = deposit.Amount;
                 deposittoChange.Date = deposit.Date;
                 deposittoChange.Description = deposit.Description;
                 deposittoChange.Comments = deposit.Comments;
 
-                db.Entry(deposittoChange).State = EntityState.Modified;
+                db.Entry(deposit).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -215,7 +207,6 @@ namespace FinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            //TODO: subtract balance by deposit amount when transaction is deleted
             Deposit deposit = db.Deposits.Find(id);
             db.Deposits.Remove(deposit);
             db.SaveChanges();
