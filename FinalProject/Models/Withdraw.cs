@@ -7,13 +7,18 @@ using FinalProject.DAL;
 
 namespace FinalProject.Models
 {
+    //enum for transaction types
+    public enum Types { Withdraw, Deposit, Transfer }
     public class Withdraw
     {
         //transaction id
         [Display(Name = "Transaction Number")]
         public Int32 WithdrawID { get; set; }
 
-
+        public Types type
+        {
+            get { return Types.Withdraw; }
+        }
 
         //transaction date
         [Display(Name = "Transaction Date")]

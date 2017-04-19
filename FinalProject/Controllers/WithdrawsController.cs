@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using FinalProject.DAL;
 using FinalProject.Models;
+using FinalProject.Utilities;
+
 
 namespace FinalProject.Controllers
 {
@@ -51,6 +53,8 @@ namespace FinalProject.Controllers
         public ActionResult Create([Bind(Include = "WithdrawID,Date,Amount,Description,Comments")] Withdraw withdraw, Int32 BankAccountID)
         {
             BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
+
+            AccountUtitlities.GetDescription(withdraw);
 
             //associate with transaction
             withdraw.Account = SelectedAccount;

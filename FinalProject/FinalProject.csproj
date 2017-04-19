@@ -196,6 +196,9 @@
     <EmbeddedResource Include="Migrations\201704191555201_maybe.resx">
       <DependentUpon>201704191555201_maybe.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704192250277_loads.resx">
+      <DependentUpon>201704192250277_loads.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\SeedData\AccountsOnly.csv" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -229,7 +232,6 @@
     <Compile Include="Controllers\StockPortfoliosController.cs" />
     <Compile Include="Controllers\StocksController.cs" />
     <Compile Include="Controllers\StockTransactionsController.cs" />
-    <Compile Include="Controllers\TransactionsController.cs" />
     <Compile Include="Controllers\TransfersController.cs" />
     <Compile Include="Controllers\WithdrawsController.cs" />
     <Compile Include="DAL\AppDbContext.cs" />
@@ -304,6 +306,10 @@
     <Compile Include="Migrations\201704191555201_maybe.Designer.cs">
       <DependentUpon>201704191555201_maybe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704192250277_loads.cs" />
+    <Compile Include="Migrations\201704192250277_loads.Designer.cs">
+      <DependentUpon>201704192250277_loads.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AddAccounts.cs" />
     <Compile Include="Migrations\AddCustomers.cs" />
     <Compile Include="Migrations\AddPayees.cs" />
@@ -321,7 +327,6 @@
     <Compile Include="Models\StockPortfolio.cs" />
     <Compile Include="Models\StockQuote.cs" />
     <Compile Include="Models\StockTransaction.cs" />
-    <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\Transfer.cs" />
     <Compile Include="Models\Withdraw.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -351,12 +356,6 @@
     <Content Include="Views\BankAccounts\Edit.cshtml" />
     <Content Include="Views\BankAccounts\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Transactions\Create.cshtml" />
-    <Content Include="Views\Transactions\Delete.cshtml" />
-    <Content Include="Views\Transactions\Details.cshtml" />
-    <Content Include="Views\Transactions\Edit.cshtml" />
-    <Content Include="Views\Transactions\Index.cshtml" />
-    <Content Include="Views\Transactions\Summary.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />

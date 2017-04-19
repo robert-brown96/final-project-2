@@ -13,7 +13,10 @@ namespace FinalProject.Models
         [Display(Name = "Transaction Number")]
         public Int32 TransferID { get; set; }
 
-
+        public Types type
+        {
+            get { return Types.Transfer; }
+        }
 
         //transaction date
         [Display(Name = "Transaction Date")]

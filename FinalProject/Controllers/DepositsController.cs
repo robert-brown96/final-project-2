@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using FinalProject.DAL;
 using FinalProject.Models;
+using FinalProject.Utilities;
 
 namespace FinalProject.Controllers
 {
@@ -16,11 +17,6 @@ namespace FinalProject.Controllers
     {
         private AppDbContext db = new AppDbContext();
 
-        //public void GetDescription(Int32 BankAccountID, Deposit deposit)
-        //{
-        //    BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
-        //    deposit.Description = "Deposit from" + SelectedAccount;
-        //}
 
         // GET: Deposits
         public ActionResult Index()
@@ -59,7 +55,9 @@ namespace FinalProject.Controllers
         {
             //find selected account
             BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
-            
+
+            AccountUtitlities.GetDescription(deposit);
+
             //associate with deposit
             deposit.Account = SelectedAccount;
 
