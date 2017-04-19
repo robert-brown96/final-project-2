@@ -50,7 +50,6 @@ namespace FinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "TransferID,Date,Amount,Description,Comments")] Transfer transfer, Int32 BankAccountID, Int32 SecondBankAccountID)
         {
-            //NOTE: THIS CODE WAS ADDED
             //find selected account
             BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
             BankAccount TransfertoAccount = db.Accounts.Find(SecondBankAccountID);
@@ -65,12 +64,12 @@ namespace FinalProject.Controllers
 
             Decimal Balance = SelectedAccount.Balance;
             Decimal TransfertoBalance = TransfertoAccount.Balance;
-            
+
             Balance = Balance - transfer.Amount;
             SelectedAccount.Balance = Balance;
             TransfertoBalance = TransfertoBalance + transfer.Amount;
             TransfertoAccount.Balance = TransfertoBalance;
-            
+
 
             if (ModelState.IsValid)
             {

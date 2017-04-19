@@ -8,8 +8,6 @@ using System.Web;
 using System.Web.Mvc;
 using FinalProject.DAL;
 using FinalProject.Models;
-using FinalProject.Utilities;
-
 
 namespace FinalProject.Controllers
 {
@@ -52,28 +50,15 @@ namespace FinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "WithdrawID,Date,Amount,Description,Comments")] Withdraw withdraw, Int32 BankAccountID)
         {
-            BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
-
-            AccountUtitlities.GetDescription(withdraw);
-
-            //associate with transaction
-            withdraw.Account = SelectedAccount;
-
-            Decimal Balance = SelectedAccount.Balance;
-            Balance = Balance - withdraw.Amount;
-            SelectedAccount.Balance = Balance;
-            
             if (ModelState.IsValid)
             {
                 db.Withdrawals.Add(withdraw);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AllAccounts = GetAllAccounts(withdraw);
+
             return View(withdraw);
         }
-
-
 
         // GET: Withdraws/Edit/5
         public ActionResult Edit(int? id)
@@ -90,13 +75,13 @@ namespace FinalProject.Controllers
             return View(withdraw);
         }
 
-
+        // POST: Withdraws/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "WithdrawID,Date,Amount,Description,Comments")] Withdraw withdraw, Int32 BankAccountID)
         {
-
-
             if (ModelState.IsValid)
             {
                 Withdraw withdrawtoChange = db.Withdrawals.Find(withdraw.WithdrawID);
@@ -119,8 +104,7 @@ namespace FinalProject.Controllers
                     //update balance
                     PreviousAccount.Balance = Balance;
 
-                    //update field
-                    withdrawtoChange.Amount = withdraw.Amount;
+                   
 
                     //find selected account
                     BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
@@ -169,7 +153,6 @@ namespace FinalProject.Controllers
                     SelectedAccount.Balance = Balance;
 
                     //update field
-                    withdrawtoChange.Amount = withdraw.Amount;
 
                 }
 
@@ -177,32 +160,16 @@ namespace FinalProject.Controllers
 
 
                 //change all other fields
+                withdrawtoChange.Amount = withdraw.Amount;
                 withdrawtoChange.Date = withdraw.Date;
                 withdrawtoChange.Description = withdraw.Description;
                 withdrawtoChange.Comments = withdraw.Comments;
-
-                db.Entry(withdrawtoChange).State = EntityState.Modified;
+                db.Entry(withdraw).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AllAccounts = GetAllAccounts(withdraw);
             return View(withdraw);
         }
-        //// POST: Withdraws/Edit/5
-        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        //// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit([Bind(Include = "WithdrawID,Date,Amount,Description,Comments")] Withdraw withdraw)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Entry(withdraw).State = EntityState.Modified;
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(withdraw);
-        //}
 
         // GET: Withdraws/Delete/5
         public ActionResult Delete(int? id)
@@ -239,6 +206,35 @@ namespace FinalProject.Controllers
             base.Dispose(disposing);
         }
 
+        public SelectList GetAllAccounts(Withdraw withdraw)
+        {
+            //populate list of Accounts
+            var query = from b in db.Accounts
+                        orderby b.AccountType
+                        select b;
+
+            List<BankAccount> allAccounts = query.ToList();
+
+            SelectList list = new SelectList(allAccounts, "BankAccountID", "Name", withdraw.Account.BankAccountID);
+
+            return list;
+
+        }
+        //NOTE: THIS CODE WAS ADDED
+        public SelectList GetAllAccounts()
+        {
+            //populate list of Accounts
+            var query = from b in db.Accounts
+                        orderby b.AccountType
+                        select b;
+
+            List<BankAccount> allAccounts = query.ToList();
+
+            SelectList allAccountslist = new SelectList(allAccounts, "BankAccountID", "Name");
+
+            return allAccountslist;
+
+        }
         public SelectList GetAllAccounts(Withdraw withdraw)
         {
             //populate list of Accounts
