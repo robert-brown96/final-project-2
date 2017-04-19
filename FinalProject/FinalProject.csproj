@@ -199,6 +199,9 @@
     <EmbeddedResource Include="Migrations\201704192250277_loads.resx">
       <DependentUpon>201704192250277_loads.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704192309106_transactionnum.resx">
+      <DependentUpon>201704192309106_transactionnum.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\SeedData\AccountsOnly.csv" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -232,6 +235,7 @@
     <Compile Include="Controllers\StockPortfoliosController.cs" />
     <Compile Include="Controllers\StocksController.cs" />
     <Compile Include="Controllers\StockTransactionsController.cs" />
+    <Compile Include="Controllers\TransactionsController.cs" />
     <Compile Include="Controllers\TransfersController.cs" />
     <Compile Include="Controllers\WithdrawsController.cs" />
     <Compile Include="DAL\AppDbContext.cs" />
@@ -309,6 +313,10 @@
     <Compile Include="Migrations\201704192250277_loads.cs" />
     <Compile Include="Migrations\201704192250277_loads.Designer.cs">
       <DependentUpon>201704192250277_loads.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704192309106_transactionnum.cs" />
+    <Compile Include="Migrations\201704192309106_transactionnum.Designer.cs">
+      <DependentUpon>201704192309106_transactionnum.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AddAccounts.cs" />
     <Compile Include="Migrations\AddPayees.cs" />
@@ -388,6 +396,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Transactions\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201704052228086_InitialSetup.resx">
