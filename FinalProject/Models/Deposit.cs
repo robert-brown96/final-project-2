@@ -30,11 +30,9 @@ namespace FinalProject.Models
         
 
         ////Description of Transaction
+        //"withdrawal from Account123232131"
         [Display(Name = "Description of Transaction")]
         public string Description { get; set; }
-
-
-
 
         //other comments?
         public string Comments { get; set; }

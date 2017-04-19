@@ -213,6 +213,7 @@
     <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="Controllers\TransactionsController.cs" />
     <Compile Include="Controllers\TransfersController.cs" />
+    <Compile Include="Controllers\WithdrawsController.cs" />
     <Compile Include="DAL\AppDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -330,6 +331,7 @@
     <Content Include="Views\StockPortfolios\Details.cshtml" />
     <Content Include="Views\StockPortfolios\Edit.cshtml" />
     <Content Include="Views\StockPortfolios\Index.cshtml" />
+    <Content Include="Views\BankAccounts\Confirmation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
