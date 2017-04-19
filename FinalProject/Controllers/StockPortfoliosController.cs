@@ -51,11 +51,11 @@ namespace FinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "StockPortfolioID,AccountNumber,CashBalance,Name,InitialDeposit")] StockPortfolio stockPortfolio)
         {
-            //put initial deposit in cash balance
-            stockPortfolio.CreateStockPortfolio();
+           
 
             //assign user
-            stockPortfolio.User.Id = User.Identity.GetUserId();
+            stockPortfolio.User = db.Users.Find(User.Identity.GetUserId());
+                
 
             //assign account number
             stockPortfolio.AccountNumber = AccountUtitlities.SetAccountNumber(db);
@@ -66,12 +66,16 @@ namespace FinalProject.Controllers
                 stockPortfolio.Name = AccountUtitlities.NullName(stockPortfolio);
             }
 
-
+            //put initial deposit in cash balance
+            stockPortfolio.CreateStockPortfolio();
+            
             if (ModelState.IsValid)
             {
+               
+
                 db.Portfolios.Add(stockPortfolio);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "StockPortfolios");
             }
 
             return View(stockPortfolio);

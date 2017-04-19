@@ -82,6 +82,51 @@ namespace FinalProject.Utilities
 
         }
 
+        public static Double CalcStockBalance(StockPortfolio portfolio)
+        {
+            Double balance = 0;
+
+            foreach (var item in portfolio.Transactions)
+            {
+
+
+                //get all transactions with same symbol
+                var query = from t in portfolio.Transactions
+                            where t.Stock.Symbol == item.Stock.Symbol
+                            select t;
+
+                List<StockTransaction> StockList = query.ToList();
+                int Shares = 0;
+
+                int count = 0;
+                foreach (var order in StockList)
+                {
+
+
+
+                    if (order.Order == OrderType.Buy)
+                    {
+                        Shares += order.Shares;
+                    }
+
+                    if (order.Order == OrderType.Sell)
+                    {
+                        Shares -= order.Shares;
+                    }
+                    count += 1;
+                }
+
+                Double Fees = count * item.Stock.Fee;
+
+                balance += Shares * item.Stock.CurrentPrice - Fees;
+
+
+            }
+
+
+            return balance;
+        }
+
 
 
 

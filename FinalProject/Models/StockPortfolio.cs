@@ -31,6 +31,7 @@ namespace FinalProject.Models
 
         //primary key 
         //[Key, ForeignKey("User")]
+        [Key]
         public int StockPortfolioID { get; set; }
 
         public Int32 AccountNumber { get; set; }
@@ -63,7 +64,7 @@ namespace FinalProject.Models
         }
 
         [Display(Name = "Initital Deposit")]
-       // [Required(ErrorMessage = "An initial deposit is required")]
+        [Required(ErrorMessage = "An initial deposit is required")]
         public double InitialDeposit { get; set; }
 
         //TODO: add 1:1 relationship
@@ -83,6 +84,11 @@ namespace FinalProject.Models
         public Double CalcStockBalance()
         {
             Double balance = 0;
+
+            if(Transactions == null)
+            {
+                return balance;
+            }
 
             foreach(var item in Transactions)
             {
