@@ -181,6 +181,21 @@
     <EmbeddedResource Include="Migrations\201704191412536_wstock.resx">
       <DependentUpon>201704191412536_wstock.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704191435103_diff.resx">
+      <DependentUpon>201704191435103_diff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704191446163_morestock.resx">
+      <DependentUpon>201704191446163_morestock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704191500441_controll.resx">
+      <DependentUpon>201704191500441_controll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704191532268_stuff.resx">
+      <DependentUpon>201704191532268_stuff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704191555201_maybe.resx">
+      <DependentUpon>201704191555201_maybe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\SeedData\AccountsOnly.csv" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -211,6 +226,9 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
+    <Compile Include="Controllers\StockPortfoliosController.cs" />
+    <Compile Include="Controllers\StocksController.cs" />
+    <Compile Include="Controllers\StockTransactionsController.cs" />
     <Compile Include="Controllers\TransactionsController.cs" />
     <Compile Include="Controllers\TransfersController.cs" />
     <Compile Include="Controllers\WithdrawsController.cs" />
@@ -265,6 +283,26 @@
     <Compile Include="Migrations\201704191412536_wstock.cs" />
     <Compile Include="Migrations\201704191412536_wstock.Designer.cs">
       <DependentUpon>201704191412536_wstock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704191435103_diff.cs" />
+    <Compile Include="Migrations\201704191435103_diff.Designer.cs">
+      <DependentUpon>201704191435103_diff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704191446163_morestock.cs" />
+    <Compile Include="Migrations\201704191446163_morestock.Designer.cs">
+      <DependentUpon>201704191446163_morestock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704191500441_controll.cs" />
+    <Compile Include="Migrations\201704191500441_controll.Designer.cs">
+      <DependentUpon>201704191500441_controll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704191532268_stuff.cs" />
+    <Compile Include="Migrations\201704191532268_stuff.Designer.cs">
+      <DependentUpon>201704191532268_stuff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704191555201_maybe.cs" />
+    <Compile Include="Migrations\201704191555201_maybe.Designer.cs">
+      <DependentUpon>201704191555201_maybe.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AddAccounts.cs" />
     <Compile Include="Migrations\AddPayees.cs" />
@@ -332,6 +370,16 @@
     <Content Include="Views\StockPortfolios\Edit.cshtml" />
     <Content Include="Views\StockPortfolios\Index.cshtml" />
     <Content Include="Views\BankAccounts\Confirmation.cshtml" />
+    <Content Include="Views\Stocks\Create.cshtml" />
+    <Content Include="Views\Stocks\Delete.cshtml" />
+    <Content Include="Views\Stocks\Details.cshtml" />
+    <Content Include="Views\Stocks\Edit.cshtml" />
+    <Content Include="Views\Stocks\Index.cshtml" />
+    <Content Include="Views\StockTransactions\Create.cshtml" />
+    <Content Include="Views\StockTransactions\Delete.cshtml" />
+    <Content Include="Views\StockTransactions\Details.cshtml" />
+    <Content Include="Views\StockTransactions\Edit.cshtml" />
+    <Content Include="Views\StockTransactions\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

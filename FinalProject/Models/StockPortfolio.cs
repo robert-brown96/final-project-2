@@ -10,6 +10,7 @@ using FinalProject.DAL;
 using System.Data.Entity;
 using System.ComponentModel.DataAnnotations.Schema;
 
+
 namespace FinalProject.Models
 {
     public class StockPortfolio
@@ -43,34 +44,22 @@ namespace FinalProject.Models
         public string Name { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:C}")]
-        [Display(Name ="Stock Balance")]
-        private Double _decStockBalance;
-        public Double StockBalance
+        [Display(Name = "Stock Balance")]
+        private Double _doubStockBalance;
+        public double StockBalance
         {
             get
             {
-                //loop through all owned stocks
-                foreach (var item in StockTransactions)
-                {
-                    double fee = item.Stock.Fee;
-                    //temp variable for current values
-                    double currentValue;
-                    //multiply shares by current price
-                    currentValue = item.Shares * item.Stock.CurrentPrice - fee;
-                    //add to stock balance
-                    _decStockBalance += currentValue;
-                }
-                return _decStockBalance;
-
-
+                _doubStockBalance = CalcStockBalance();
+                return _doubStockBalance;
             }
         }
-
+        
         [DisplayFormat(DataFormatString = "{0:C}")]
         [Display(Name ="Portfolio Balance")]
         public Double Balance
         {
-            get { return _decStockBalance + CashBalance; }           
+            get { return _doubStockBalance + CashBalance; }           
         }
 
         [Display(Name = "Initital Deposit")]
@@ -82,12 +71,58 @@ namespace FinalProject.Models
         public virtual AppUser User { get; set; }
 
        
-        public virtual List<StockTransaction> StockTransactions { get; set; }
+        public virtual List<StockTransaction> Transactions { get; set; }
+       
 
 
         public virtual List<Withdraw> Withdrawals { get; set; }
         public virtual List<Deposit> Deposits { get; set; }
         
 
+
+        public Double CalcStockBalance()
+        {
+            Double balance = 0;
+
+            foreach(var item in Transactions)
+            {
+                
+
+                //get all transactions with same symbol
+                var query = from t in Transactions
+                            where t.Stock.Symbol == item.Stock.Symbol
+                            select t;
+
+                List<StockTransaction> StockList = query.ToList();
+                int Shares = 0;
+
+                int count = 0;
+                foreach (var order in StockList)
+                {
+                    
+                    
+
+                    if (order.Order == OrderType.Buy)
+                    {
+                        Shares += order.Shares;
+                    }
+
+                    if (order.Order == OrderType.Sell)
+                    {
+                        Shares -= order.Shares;
+                    }
+                    count += 1;
+                }
+
+                Double Fees = count * item.Stock.Fee;
+
+                balance += Shares * item.Stock.CurrentPrice - Fees;
+                  
+
+            }
+
+
+            return balance;
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model FinalProject.Models.StockPortfolio
+﻿@model FinalProject.Models.Stock
 
 @{
     ViewBag.Title = "Delete";
@@ -8,23 +8,15 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>StockPortfolio</h4>
+    <h4>Stock</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.AccountNumber)
+            @Html.DisplayNameFor(model => model.Symbol)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.AccountNumber)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CashBalance)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CashBalance)
+            @Html.DisplayFor(model => model.Symbol)
         </dd>
 
         <dt>
@@ -36,11 +28,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.InitialDeposit)
+            @Html.DisplayNameFor(model => model.Fee)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.InitialDeposit)
+            @Html.DisplayFor(model => model.Fee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StockType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StockType)
         </dd>
 
     </dl>

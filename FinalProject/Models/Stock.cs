@@ -33,6 +33,9 @@ namespace FinalProject.Models
 
         public StockTypes StockType { get; set; }
 
+        public virtual List<StockTransaction> Transactions { get; set; }
+       
+
        
 
        
