@@ -21,6 +21,9 @@ namespace FinalProject.Models
         [Required(ErrorMessage ="Address is required")]
         public string Address { get; set; }
 
+        [Required(ErrorMessage = "Date is required")]
+        public DateTime Date { get; set; }
+
         public virtual List<Payment> Payments { get; set; }
     }
 }
