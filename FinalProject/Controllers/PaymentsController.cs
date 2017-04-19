@@ -8,134 +8,118 @@ using System.Web;
 using System.Web.Mvc;
 using FinalProject.DAL;
 using FinalProject.Models;
-using Microsoft.AspNet.Identity;
 
 namespace FinalProject.Controllers
 {
-    public class PayeesController : Controller
+    public class PaymentsController : Controller
     {
         private AppDbContext db = new AppDbContext();
 
-        // GET: Payees
-        public ActionResult Index()
+        public ActionResult PayBill()
         {
-            return View(db.Payees.ToList());
+            return View();
         }
 
-        // GET: Payees/Details/5
+        // GET: Payments
+        public ActionResult Index()
+        {
+            return View(db.Payments.ToList());
+        }
+
+        // GET: Payments/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Payee payee = db.Payees.Find(id);
-            if (payee == null)
+            Payment payment = db.Payments.Find(id);
+            if (payment == null)
             {
                 return HttpNotFound();
             }
-            return View(payee);
+            return View(payment);
         }
 
-        // GET: Payees/Create
+        // GET: Payments/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Payees/Create
+        // POST: Payments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PayeeID,PayeeName,PayeeType,Address")] Payee payee)
+        public ActionResult Create([Bind(Include = "PaymentID,Date,Amount")] Payment payment)
         {
             if (ModelState.IsValid)
             {
-                db.Payees.Add(payee);
+                db.Payments.Add(payment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(payee);
+            return View(payment);
         }
 
-        // GET: Payees/Edit/5
+        // GET: Payments/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Payee payee = db.Payees.Find(id);
-            if (payee == null)
+            Payment payment = db.Payments.Find(id);
+            if (payment == null)
             {
                 return HttpNotFound();
             }
-            return View(payee);
+            return View(payment);
         }
 
-        // POST: Payees/Edit/5
+        // POST: Payments/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PayeeID,PayeeName,PayeeType,Address")] Payee payee)
+        public ActionResult Edit([Bind(Include = "PaymentID,Date,Amount")] Payment payment)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(payee).State = EntityState.Modified;
+                db.Entry(payment).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(payee);
+            return View(payment);
         }
 
-        // GET: Payees/Delete/5
+        // GET: Payments/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Payee payee = db.Payees.Find(id);
-            if (payee == null)
+            Payment payment = db.Payments.Find(id);
+            if (payment == null)
             {
                 return HttpNotFound();
             }
-            return View(payee);
+            return View(payment);
         }
 
-        // POST: Payees/Delete/5
+        // POST: Payments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Payee payee = db.Payees.Find(id);
-            db.Payees.Remove(payee);
+            Payment payment = db.Payments.Find(id);
+            db.Payments.Remove(payment);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-        public SelectList GetAllPayees(overload)
-        {
-        }
-
-        public SelectList GetAllPayees()
-        {
-        }
-
-        public SelectList GetPayees()
-        {
-            AppUser currentuser;
-            currentuser = db.Users.Find(User.Identity.GetUserId());
-            SelectList allpayments = new SelectList(currentuser.Payments, "PaymentID", "Payee.Name");
-            return allpayments;
-        }
-        //NOTE: THIS CODE WAS ADDED
-
-
-
 
         protected override void Dispose(bool disposing)
         {
