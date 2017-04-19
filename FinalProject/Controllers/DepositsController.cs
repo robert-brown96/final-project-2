@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using FinalProject.DAL;
 using FinalProject.Models;
+using FinalProject.Utilities;
 
 namespace FinalProject.Controllers
 {
@@ -59,7 +60,9 @@ namespace FinalProject.Controllers
         {
             //find selected account
             BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
-            
+
+            AccountUtitlities.GetDescription(deposit);
+
             //associate with deposit
             deposit.Account = SelectedAccount;
 
