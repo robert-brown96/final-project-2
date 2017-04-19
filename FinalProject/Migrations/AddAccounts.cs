@@ -16,13 +16,8 @@ namespace FinalProject.Migrations
     {
         public static void AddAllAccounts(AppDbContext db)
         {
-            using (var sr = new StreamReader(@"AccountsOnly.csv"))
-            {
-                var csv = new CsvReader(sr);
-                var records = csv.GetRecords<BankAccount>().ToList();
-
-                Console.WriteLine(records);
-            }
+            BankAccount ba1 = new BankAccount();
+            ba1.AccountNumber 
             
                 
         }

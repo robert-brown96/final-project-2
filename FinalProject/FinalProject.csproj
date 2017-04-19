@@ -305,6 +305,7 @@
       <DependentUpon>201704191555201_maybe.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AddAccounts.cs" />
+    <Compile Include="Migrations\AddCustomers.cs" />
     <Compile Include="Migrations\AddPayees.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BankAccount.cs" />
