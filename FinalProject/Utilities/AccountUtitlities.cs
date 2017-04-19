@@ -40,15 +40,15 @@ namespace FinalProject.Utilities
                     
         }
 
-        public static string NullName(StockPortfolio portfolio)
-        {
-            string Name;
+        //public static string NullName(StockPortfolio portfolio)
+        //{
+        //    string Name;
 
-            Name = "Longhorn Portfolio";
+        //    Name = "Longhorn Portfolio";
 
-            return Name;
+        //    return Name;
 
-        }
+        //}
 
         //Noah recommendations: Auto increment bank account here. Get largest current bank account and add one. 
         //Call method on the controller. 

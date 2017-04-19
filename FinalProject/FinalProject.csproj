@@ -175,8 +175,11 @@
     <EmbeddedResource Include="Migrations\201704181647495_new_fks.resx">
       <DependentUpon>201704181647495_new_fks.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704181843198_double.resx">
-      <DependentUpon>201704181843198_double.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704191407197_nstock.resx">
+      <DependentUpon>201704191407197_nstock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704191412536_wstock.resx">
+      <DependentUpon>201704191412536_wstock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\SeedData\AccountsOnly.csv" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -208,7 +211,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
-    <Compile Include="Controllers\StockPortfoliosController.cs" />
     <Compile Include="Controllers\TransactionsController.cs" />
     <Compile Include="Controllers\TransfersController.cs" />
     <Compile Include="DAL\AppDbContext.cs" />
@@ -255,9 +257,13 @@
     <Compile Include="Migrations\201704181647495_new_fks.Designer.cs">
       <DependentUpon>201704181647495_new_fks.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201704181843198_double.cs" />
-    <Compile Include="Migrations\201704181843198_double.Designer.cs">
-      <DependentUpon>201704181843198_double.cs</DependentUpon>
+    <Compile Include="Migrations\201704191407197_nstock.cs" />
+    <Compile Include="Migrations\201704191407197_nstock.Designer.cs">
+      <DependentUpon>201704191407197_nstock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704191412536_wstock.cs" />
+    <Compile Include="Migrations\201704191412536_wstock.Designer.cs">
+      <DependentUpon>201704191412536_wstock.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AddAccounts.cs" />
     <Compile Include="Migrations\AddPayees.cs" />

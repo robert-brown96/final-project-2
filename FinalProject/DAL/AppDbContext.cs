@@ -19,7 +19,7 @@ namespace FinalProject.DAL
 
         public DbSet<StockPortfolio> Portfolios { get; set; }
         public DbSet<Stock> Stocks { get; set; }
-        //public DbSet<StockTransaction> StockTransactions { get; set; }
+        public DbSet<StockTransaction> StockTransactions { get; set; }
         public DbSet<Payee> Payees { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Deposit> Deposits { get; set; }

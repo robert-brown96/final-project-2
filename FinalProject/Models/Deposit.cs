@@ -44,7 +44,7 @@ namespace FinalProject.Models
 
         //TODO: the controller will have to be modified 
         //we should be able to overload the create and edit methods to recognize stock accounts
-        public virtual StockPortfolio Portfolio { get; set; }
+      //  public virtual StockPortfolio Portfolio { get; set; }
 
 
     }

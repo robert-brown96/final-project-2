@@ -60,9 +60,9 @@ namespace FinalProject.Models
                     //add to stock balance
                     _decStockBalance += currentValue;
                 }
-            return _decStockBalance;
-            
-            
+                return _decStockBalance;
+
+
             }
         }
 
@@ -74,7 +74,7 @@ namespace FinalProject.Models
         }
 
         [Display(Name = "Initital Deposit")]
-        [Required(ErrorMessage = "An initial deposit is required")]
+       // [Required(ErrorMessage = "An initial deposit is required")]
         public double InitialDeposit { get; set; }
 
         //TODO: add 1:1 relationship
