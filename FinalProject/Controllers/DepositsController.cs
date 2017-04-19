@@ -17,11 +17,6 @@ namespace FinalProject.Controllers
     {
         private AppDbContext db = new AppDbContext();
 
-        //public void GetDescription(Int32 BankAccountID, Deposit deposit)
-        //{
-        //    BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
-        //    deposit.Description = "Deposit from" + SelectedAccount;
-        //}
 
         // GET: Deposits
         public ActionResult Index()
