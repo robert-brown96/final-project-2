@@ -26,11 +26,7 @@ namespace FinalProject.Models
         [Display(Name = "First Name")]
         public string FName { get; set; }
 
-        //phone number, should have been here by default?
-        /*[Required(ErrorMessage ="Phone number is required")]
-        [DataType(DataType.PhoneNumber)]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number")]
-        public string Phone { get; set; }*/
+        
 
         [Required(ErrorMessage = "Last name is required")]
         [Display(Name = "Last Name")]
@@ -45,13 +41,13 @@ namespace FinalProject.Models
         [Display(Name = "Street Address")]
         [RegularExpression(@"^(?:\w+\s?)+\w+$", ErrorMessage = "Street Address not valid.")]
         public string Address { get; set; }
-        /*
+        
         [Required(ErrorMessage = "City is required")]
         public string City { get; set; }
 
         [Required(ErrorMessage = "State is required")]
         public string State { get; set; }
-        */
+        
         [Required(ErrorMessage = "Zip code is required")]
         [RegularExpression(@"^\d{5}$", ErrorMessage = "Zip is not valid")]
         public string Zip { get; set; }

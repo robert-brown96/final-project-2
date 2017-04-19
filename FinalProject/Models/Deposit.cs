@@ -12,7 +12,10 @@ namespace FinalProject.Models
         [Display(Name = "Transaction Number")]
         public Int32 DepositID { get; set; }
 
-
+        public Types type
+        {
+            get { return Types.Deposit; }
+        }
 
         //transaction date
         [Display(Name = "Transaction Date")]

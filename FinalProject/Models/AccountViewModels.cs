@@ -67,13 +67,13 @@ namespace FinalProject.Models
         [Display(Name = "Street Address")]
         [RegularExpression(@"^(?:\w+\s?)+\w+$", ErrorMessage = "Street Address not valid.")]
         public string Address { get; set; }
-        /*
+        
         [Required(ErrorMessage = "City is required")]
         public string City { get; set; }
 
         [Required(ErrorMessage = "State is required")]
         public string State { get; set; }
-        */
+        
         [Required(ErrorMessage = "Zip code is required")]
         [RegularExpression(@"^\d{5}$", ErrorMessage = "Zip is not valid")]
         public string Zip { get; set; }
