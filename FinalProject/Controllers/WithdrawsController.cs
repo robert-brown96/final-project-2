@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using FinalProject.DAL;
 using FinalProject.Models;
+using FinalProject.Utilities;
 
 namespace FinalProject.Controllers
 {
@@ -50,13 +51,23 @@ namespace FinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "WithdrawID,Date,Amount,Description,Comments")] Withdraw withdraw, Int32 BankAccountID)
         {
+            BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
+
+            AccountUtitlities.GetDescription(withdraw);
+
+            //associate with transaction
+            withdraw.Account = SelectedAccount;
+
+            Decimal Balance = SelectedAccount.Balance;
+            Balance = Balance - withdraw.Amount;
+            SelectedAccount.Balance = Balance;
             if (ModelState.IsValid)
             {
                 db.Withdrawals.Add(withdraw);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.AllAccounts = GetAllAccounts(withdraw);
             return View(withdraw);
         }
 
@@ -72,6 +83,7 @@ namespace FinalProject.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.AllAccounts = GetAllAccounts(withdraw);
             return View(withdraw);
         }
 
@@ -168,6 +180,7 @@ namespace FinalProject.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.AllAccounts = GetAllAccounts(withdraw);
             return View(withdraw);
         }
 
@@ -206,35 +219,7 @@ namespace FinalProject.Controllers
             base.Dispose(disposing);
         }
 
-        public SelectList GetAllAccounts(Withdraw withdraw)
-        {
-            //populate list of Accounts
-            var query = from b in db.Accounts
-                        orderby b.AccountType
-                        select b;
-
-            List<BankAccount> allAccounts = query.ToList();
-
-            SelectList list = new SelectList(allAccounts, "BankAccountID", "Name", withdraw.Account.BankAccountID);
-
-            return list;
-
-        }
-        //NOTE: THIS CODE WAS ADDED
-        public SelectList GetAllAccounts()
-        {
-            //populate list of Accounts
-            var query = from b in db.Accounts
-                        orderby b.AccountType
-                        select b;
-
-            List<BankAccount> allAccounts = query.ToList();
-
-            SelectList allAccountslist = new SelectList(allAccounts, "BankAccountID", "Name");
-
-            return allAccountslist;
-
-        }
+      
         public SelectList GetAllAccounts(Withdraw withdraw)
         {
             //populate list of Accounts
