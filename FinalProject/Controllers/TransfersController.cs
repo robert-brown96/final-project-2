@@ -55,6 +55,10 @@ namespace FinalProject.Controllers
             BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
             BankAccount TransfertoAccount = db.Accounts.Find(SecondBankAccountID);
 
+
+            //add a description
+            transfer.Description = "Transfer from" + SelectedAccount.Name + "to" + TransfertoAccount.Name + "on" + transfer.Date;
+
             //associate with transaction
             transfer.Account = SelectedAccount;
             transfer.Account = TransfertoAccount;
