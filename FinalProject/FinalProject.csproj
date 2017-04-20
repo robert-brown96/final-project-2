@@ -232,12 +232,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PayeesController.cs" />
-    <Compile Include="Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="Controllers\StockPortfoliosController.cs" />
     <Compile Include="Controllers\StocksController.cs" />
     <Compile Include="Controllers\StockTransactionsController.cs" />
-    <Compile Include="Controllers\TransfersController.cs" />
     <Compile Include="Controllers\WithdrawsController.cs" />
     <Compile Include="DAL\AppDbContext.cs" />
     <Compile Include="Global.asax.cs">

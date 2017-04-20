@@ -132,8 +132,6 @@ namespace FinalProject.Controllers
             SelectList allpayments = new SelectList(currentuser.Payments, "PaymentID", "Payee.Name");
             return allpayments;
         }
-        //NOTE: THIS CODE WAS ADDED
-
 
 
 
