@@ -199,6 +199,9 @@
     <EmbeddedResource Include="Migrations\201704192250277_loads.resx">
       <DependentUpon>201704192250277_loads.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704192325140_fixmodel.resx">
+      <DependentUpon>201704192325140_fixmodel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\SeedData\AccountsOnly.csv" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -310,9 +313,14 @@
     <Compile Include="Migrations\201704192250277_loads.Designer.cs">
       <DependentUpon>201704192250277_loads.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704192325140_fixmodel.cs" />
+    <Compile Include="Migrations\201704192325140_fixmodel.Designer.cs">
+      <DependentUpon>201704192325140_fixmodel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AddAccounts.cs" />
     <Compile Include="Migrations\AddCustomers.cs" />
     <Compile Include="Migrations\AddPayees.cs" />
+    <Compile Include="Migrations\AddStocks.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BankAccount.cs" />
     <Compile Include="Models\AccountViewModels.cs" />

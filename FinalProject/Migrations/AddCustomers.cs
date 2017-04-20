@@ -31,15 +31,20 @@ namespace FinalProject.Migrations
             String strEmail = "cbaker@freezing.co.uk";
             AppUser user = new AppUser()
             {
+                
                 UserName = strEmail,
                 Email = strEmail,
                 FName = "Christopher",
                 LName = "Baker",
                 PhoneNumber = "5125571146",
-                MInitial = L,
+                MInitial = char.Parse("L"),
                 Address = "1245 Lake Austin Blvd.",
-                Zip = "78733",
-                Birthday = DateTime.TryParseExact("12/30/2011")
+                Zip = "78733",              
+                City = "Austin",
+                State = "TX",
+                Birthday = DateTime.ParseExact("1991-02-07", "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture)
+
+
             };
             //see if the user is already there
             AppUser userToAdd = userManager.FindByName(strEmail);

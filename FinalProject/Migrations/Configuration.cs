@@ -28,6 +28,7 @@ namespace FinalProject.Migrations
             //    );
             //
             AddPayees.AddAllPayees(db);
+            SeedIdentity.SeedUsers(db);
 
             // attempt to seed accounts with csv connection
             

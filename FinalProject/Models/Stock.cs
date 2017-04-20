@@ -24,8 +24,9 @@ namespace FinalProject.Models
             {
                 StockQuote stock = GetQuote.GetStock(Symbol);
                 _decCurrentPrice = stock.PreviousClose;
-                return _decCurrentPrice;
+                return _decCurrentPrice;             
             }
+            
              
         }
 
