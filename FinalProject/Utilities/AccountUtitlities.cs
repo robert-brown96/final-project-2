@@ -60,6 +60,35 @@ namespace FinalProject.Utilities
 
             return NewAccountNumber;
         }
+        public static Int32 SetTransactionNumber(AppDbContext db)
+        {
+            Int32 transaction_number;
+
+
+            var query = from a in db.Deposits
+                        select a.TransactionNumber;
+
+            var query2 = from p in db.Withdrawals
+                         select p.TransactionNumber;
+
+            var query3 = from t in db.Transfers
+                         select t.TransactionNumber;
+
+
+
+            List<int> AccountNumbers = query.ToList();
+
+            AccountNumbers.AddRange(query2.ToList());
+
+            AccountNumbers.AddRange(query3.ToList());
+
+            transaction_number = AccountNumbers.Max() + 1;
+
+            return transaction_number;
+
+        }
+
+
 
         public static Int32 SetAccountNumber(AppDbContext db)
         {

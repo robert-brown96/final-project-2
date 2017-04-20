@@ -199,6 +199,9 @@
     <EmbeddedResource Include="Migrations\201704192250277_loads.resx">
       <DependentUpon>201704192250277_loads.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704192309106_transactionnum.resx">
+      <DependentUpon>201704192309106_transactionnum.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\SeedData\AccountsOnly.csv" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -229,7 +232,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PayeesController.cs" />
-    <Compile Include="Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="Controllers\StockPortfoliosController.cs" />
     <Compile Include="Controllers\StocksController.cs" />
@@ -312,6 +314,10 @@
     <Compile Include="Migrations\201704192250277_loads.Designer.cs">
       <DependentUpon>201704192250277_loads.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704192309106_transactionnum.cs" />
+    <Compile Include="Migrations\201704192309106_transactionnum.Designer.cs">
+      <DependentUpon>201704192309106_transactionnum.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AddAccounts.cs" />
     <Compile Include="Migrations\AddPayees.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -381,12 +387,21 @@
     <Content Include="Views\Payees\Details.cshtml" />
     <Content Include="Views\Payees\Edit.cshtml" />
     <Content Include="Views\Payees\Index.cshtml" />
-    <Content Include="Views\Payments\Create.cshtml" />
-    <Content Include="Views\Payments\Delete.cshtml" />
-    <Content Include="Views\Payments\Details.cshtml" />
-    <Content Include="Views\Payments\Edit.cshtml" />
-    <Content Include="Views\Payments\Index.cshtml" />
-    <Content Include="Views\Payments\PayBill.cshtml" />
+    <Content Include="Views\Deposits\Create.cshtml" />
+    <Content Include="Views\Deposits\Delete.cshtml" />
+    <Content Include="Views\Deposits\Details.cshtml" />
+    <Content Include="Views\Deposits\Edit.cshtml" />
+    <Content Include="Views\Deposits\Index.cshtml" />
+    <Content Include="Views\Transfers\Create.cshtml" />
+    <Content Include="Views\Transfers\Delete.cshtml" />
+    <Content Include="Views\Transfers\Details.cshtml" />
+    <Content Include="Views\Transfers\Edit.cshtml" />
+    <Content Include="Views\Transfers\Index.cshtml" />
+    <Content Include="Views\Withdraws\Create.cshtml" />
+    <Content Include="Views\Withdraws\Delete.cshtml" />
+    <Content Include="Views\Withdraws\Details.cshtml" />
+    <Content Include="Views\Withdraws\Edit.cshtml" />
+    <Content Include="Views\Withdraws\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -396,6 +411,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Transactions\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201704052228086_InitialSetup.resx">
