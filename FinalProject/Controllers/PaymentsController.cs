@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using FinalProject.DAL;
 using FinalProject.Models;
+using FinalProject.Utilities;
+
 
 namespace FinalProject.Controllers
 {

@@ -166,6 +166,15 @@ namespace FinalProject.Utilities
             withdraw.Description = "Withdrawal from " + withdraw.Account.Name + "on" + withdraw.Date;
         }
 
+        /*
+        public static void IRA_Deposit(Deposit deposit)
+        {
+            TimeSpan age = deposit.Account.AppUser.Birthday - DateTime.Today;
+
+            if(age > 70)
+        }*/
+ 
+
         
 
 

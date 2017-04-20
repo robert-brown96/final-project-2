@@ -59,6 +59,14 @@ namespace FinalProject.Controllers
 
             //assign price
             stockTransaction.Price = GetQuote.GetStock(SelectedStock.Symbol).PreviousClose;
+
+            double t_value = stockTransaction.Shares * stockTransaction.Price;
+
+            if (stockTransaction.Portfolio.CashBalance < t_value)
+            {
+                //overdraft logic
+
+            }
             
 
             if (ModelState.IsValid)
