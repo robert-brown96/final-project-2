@@ -41,6 +41,11 @@ namespace FinalProject.Controllers
         // GET: StockPortfolios/Create
         public ActionResult Create()
         {
+            AppUser current = db.Users.Find(User.Identity.GetUserId());
+            if (current.Portfolio.Count() > 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
@@ -68,7 +73,8 @@ namespace FinalProject.Controllers
 
             //put initial deposit in cash balance
             stockPortfolio.CreateStockPortfolio();
-            
+        
+            //NOTE: there's an error with model state
             if (ModelState.IsValid)
             {
                
@@ -78,6 +84,8 @@ namespace FinalProject.Controllers
                 return RedirectToAction("Index", "StockPortfolios");
             }
 
+            
+            
             return View(stockPortfolio);
         }
 
@@ -145,6 +153,16 @@ namespace FinalProject.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public static List<string> GetErrorListFromModelState (ModelStateDictionary modelState)
+        {
+            var query = from state in modelState.Values
+                        from error in state.Errors
+                        select error.ErrorMessage;
+
+            var errorList = query.ToList();
+            return errorList;
         }
     }
 }

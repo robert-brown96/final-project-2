@@ -30,7 +30,6 @@ namespace FinalProject.Models
         }
 
         //primary key 
-        //[Key, ForeignKey("User")]
         [Key]
         public int StockPortfolioID { get; set; }
 
@@ -68,7 +67,7 @@ namespace FinalProject.Models
         public double InitialDeposit { get; set; }
 
         //TODO: add 1:1 relationship
-        [Required]
+       // [Required]
         public virtual AppUser User { get; set; }
 
        

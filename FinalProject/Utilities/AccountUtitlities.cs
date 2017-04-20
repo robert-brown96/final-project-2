@@ -176,7 +176,7 @@ namespace FinalProject.Utilities
 
             DateTime today = DateTime.Today;
 
-            int age = user.Year - today.Year;
+            int age = today.Year - user.Year;
 
             if(age > 70)
             {
@@ -200,11 +200,48 @@ namespace FinalProject.Utilities
                 }
                 if(contributions > 5000)
                 {
+
+                    deposit.Amount = 5000 - contributions;
                     return -1;
                 }
                 else
                 {
                     return 0;
+                }
+
+            }
+        }
+
+        //ira withdrawals
+        //return -1 if the transaction is unqualified
+        public static int IRA_Withdraw(Withdraw withdrawal)
+        {
+            DateTime bday = withdrawal.Account.AppUser.Birthday;
+            DateTime now = DateTime.Today;
+
+            //calculate age
+            int age = now.Year - bday.Year;
+
+            //qualified
+            if (age > 65)
+            {
+                return 0;
+            }
+            //unqualified
+            else
+            {
+                //TODO: add logic to apply fees for unqualified transaction
+
+                //max for unqualified 
+                if(withdrawal.Amount > 3000)
+                {
+                    
+                    withdrawal.Amount = 3000;
+                    return -1;
+                }
+                else
+                {
+                    return -1;
                 }
 
             }

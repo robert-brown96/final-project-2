@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using FinalProject.DAL;
 using FinalProject.Models;
 using FinalProject.Utilities;
@@ -53,6 +54,10 @@ namespace FinalProject.Controllers
         {
 
             Stock SelectedStock = db.Stocks.Find(StockID);
+
+            List<StockPortfolio> portfolio = db.Users.Find(User.Identity.GetUserId()).Portfolio;
+
+            stockTransaction.Portfolio = portfolio.First();
 
             //associate with transaction
             stockTransaction.Stock = SelectedStock;
