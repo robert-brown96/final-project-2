@@ -55,7 +55,7 @@ namespace FinalProject.Controllers
             //find selected account
             BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
 
-            AccountUtitlities.GetDescription(deposit);
+            
 
             //associate with deposit
             deposit.Account = SelectedAccount;
@@ -78,6 +78,7 @@ namespace FinalProject.Controllers
             SelectedAccount.Balance = Balance;
             if (ModelState.IsValid)
             {
+                AccountUtitlities.GetDescription(deposit);
                 db.Deposits.Add(deposit);
                 db.SaveChanges();
                 return RedirectToAction("Index");

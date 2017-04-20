@@ -53,7 +53,6 @@ namespace FinalProject.Controllers
         {
             BankAccount SelectedAccount = db.Accounts.Find(BankAccountID);
 
-            AccountUtitlities.GetDescription(withdraw);
 
             //associate with transaction
             withdraw.Account = SelectedAccount;
@@ -63,6 +62,7 @@ namespace FinalProject.Controllers
             SelectedAccount.Balance = Balance;
             if (ModelState.IsValid)
             {
+                AccountUtitlities.GetDescription(withdraw);
                 db.Withdrawals.Add(withdraw);
                 db.SaveChanges();
                 return RedirectToAction("Index");
