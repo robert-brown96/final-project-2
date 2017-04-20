@@ -58,7 +58,7 @@ namespace FinalProject.Controllers
 
 
             //add a description
-            transfer.Description = "Transfer from" + SelectedAccount.Name + "to" + TransfertoAccount.Name + "on" + transfer.Date;
+            transfer.Description = "Transfer from " + SelectedAccount.Name + " to " + TransfertoAccount.Name + " on " + transfer.Date;
 
             //associate with transaction
             transfer.Account = SelectedAccount;

@@ -158,12 +158,12 @@ namespace FinalProject.Utilities
 
         public static void GetDescription(Deposit deposit)
         {
-            deposit.Description = "Deposit from " + deposit.Account.Name + "on" + deposit.Date;
+            deposit.Description = "Deposit to " + deposit.Account.Name + " on " + deposit.Date;
         }
 
         public static void GetDescription(Withdraw withdraw)
         {
-            withdraw.Description = "Withdrawal from " + withdraw.Account.Name + "on" + withdraw.Date;
+            withdraw.Description = "Withdrawal from " + withdraw.Account.Name + " on " + withdraw.Date;
         }
 
         /*
@@ -174,8 +174,6 @@ namespace FinalProject.Utilities
             if(age > 70)
         }*/
  
-
-        
 
 
 
