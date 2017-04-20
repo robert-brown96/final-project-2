@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using FinalProject.DAL;
 using FinalProject.Models;
+using Microsoft.AspNet.Identity;
 
 namespace FinalProject.Controllers
 {
@@ -115,6 +116,26 @@ namespace FinalProject.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public SelectList GetAllPayees(overload)
+        {
+        }
+
+        public SelectList GetAllPayees()
+        {
+        }
+
+        public SelectList GetPayees()
+        {
+            AppUser currentuser;
+            currentuser = db.Users.Find(User.Identity.GetUserId());
+            SelectList allpayments = new SelectList(currentuser.Payments, "PaymentID", "Payee.Name");
+            return allpayments;
+        }
+        //NOTE: THIS CODE WAS ADDED
+
+
+
 
         protected override void Dispose(bool disposing)
         {
