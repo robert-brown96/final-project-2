@@ -60,6 +60,17 @@ namespace FinalProject.Controllers
             //associate with deposit
             deposit.Account = SelectedAccount;
 
+            if(SelectedAccount.AccountType == AccountTypes.IRA)
+            {
+                
+                int result = AccountUtitlities.IRA_Deposit(deposit);
+                if(result ==-1)
+                {
+                    return View(deposit);
+                }
+             
+            }
+
             //get balance
             Decimal Balance = SelectedAccount.Balance;
 

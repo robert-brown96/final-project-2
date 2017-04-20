@@ -166,13 +166,49 @@ namespace FinalProject.Utilities
             withdraw.Description = "Withdrawal from " + withdraw.Account.Name + "on" + withdraw.Date;
         }
 
-        /*
-        public static void IRA_Deposit(Deposit deposit)
+        
+
+        //validates IRA deposits
+        //returns -1 when there is an error
+        public static int IRA_Deposit(Deposit deposit)
         {
-            TimeSpan age = deposit.Account.AppUser.Birthday - DateTime.Today;
+            DateTime user = deposit.Account.AppUser.Birthday;
+
+            DateTime today = DateTime.Today;
+
+            int age = user.Year - today.Year;
 
             if(age > 70)
-        }*/
+            {
+                return -1;
+            }
+            else
+            {
+                decimal contributions = deposit.Amount;
+
+                List<Deposit> Deposits = deposit.Account.Deposits;
+                List<Transfer> Transfers = deposit.Account.Transfers;
+
+                foreach(var item in Deposits)
+                {
+                    contributions += item.Amount;
+                }
+                foreach(var item in Transfers)
+                {
+                    decimal amount = item.Amount;
+                    contributions += amount;
+                }
+                if(contributions > 5000)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return 0;
+                }
+
+            }
+        }
  
 
         
