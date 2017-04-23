@@ -10,6 +10,8 @@ namespace FinalProject.Migrations
     {
         public Configuration()
         {
+            
+
             AutomaticMigrationsEnabled = false;
         }
 

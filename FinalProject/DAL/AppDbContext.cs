@@ -27,6 +27,7 @@ namespace FinalProject.DAL
         public DbSet<Withdraw> Withdrawals { get; set; }
         public DbSet<Transfer> Transfers { get; set; }
 
+        
 
         //TODO: Make sure that your connection string name is correct here.
         public AppDbContext(): base("MyDBConnection", throwIfV1Schema: false)

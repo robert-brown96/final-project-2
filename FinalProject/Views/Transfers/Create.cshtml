@@ -48,14 +48,14 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2">Transfer From Bank Account</label>
+            <label class="control-label col-md-2">Transfer From</label>
             <div class="col-md-10">
                 @Html.DropDownList("BankAccountID", (SelectList)ViewBag.AllAccounts, new { @class = "form-control" })
             </div>
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2">Trasfer To Bank Account</label>
+            <label class="control-label col-md-2">Transfer To</label>
             <div class="col-md-10">
                 @Html.DropDownList("SecondBankAccountID", (SelectList)ViewBag.AllAccounts, new { @class = "form-control" })
             </div>

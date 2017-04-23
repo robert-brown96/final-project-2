@@ -38,7 +38,7 @@ namespace FinalProject.Controllers
 
 
         // GET: BankAccounts/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id, String SearchString)
         {
             if (id == null)
             {
@@ -49,6 +49,67 @@ namespace FinalProject.Controllers
             {
                 return HttpNotFound();
             }
+
+
+            ////query all three transaction types
+            //var query0 = from d in db.Deposits
+            //            where d.Account == bankAccount
+            //            select d;
+
+            //var query1 = from w in db.Withdrawals
+            //             where w.Account == bankAccount
+            //             select w;
+
+            //var query2 = from t in db.Transfers
+            //             where t.Account == bankAccount
+            //             select t;
+
+            //List<object> Transactions = new List<object>();
+            //List<object> SelectedTransactions = new List<object>();
+
+            ////count all
+            //ViewBag.Count = Transactions.Count();
+
+            ////add queries to list
+            //Transactions.AddRange(query0);
+            //Transactions.AddRange(query1);
+            //Transactions.AddRange(query2);
+
+            ////SearchString is the string from the first textbox
+            //if (SearchString == null || SearchString == "") //they didn't select anything
+            //{
+
+
+            //    SelectedTransactions = Transactions;
+            //    ViewBag.SelectedTransactionsCount = SelectedTransactions.Count();
+                
+            //}
+            //else
+            //{
+            //    var deposit_query = db.Deposits.Where(d => d.Description.Contains(SearchString) || d.TransactionNumber.Equals(SearchString));
+            //    var withdrawal_query = db.Withdrawals.Where(d => d.Description.Contains(SearchString) || d.TransactionNumber.Equals(SearchString));
+            //    var transfer_query = db.Deposits.Where(d => d.Description.Contains(SearchString) || d.TransactionNumber.Equals(SearchString));
+
+            //    SelectedTransactions = deposit_query.ToList();
+
+
+
+
+
+
+
+
+            //}
+
+
+
+
+
+
+
+
+
+
             return View(bankAccount);
         }
 

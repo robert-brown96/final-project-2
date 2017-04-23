@@ -60,6 +60,35 @@ namespace FinalProject.Utilities
 
             return NewAccountNumber;
         }
+        public static Int32 SetTransactionNumber(AppDbContext db)
+        {
+            Int32 transaction_number;
+
+
+            var query = from a in db.Deposits
+                        select a.TransactionNumber;
+
+            var query2 = from p in db.Withdrawals
+                         select p.TransactionNumber;
+
+            var query3 = from t in db.Transfers
+                         select t.TransactionNumber;
+
+
+
+            List<int> AccountNumbers = query.ToList();
+
+            AccountNumbers.AddRange(query2.ToList());
+
+            AccountNumbers.AddRange(query3.ToList());
+
+            transaction_number = AccountNumbers.Max() + 1;
+
+            return transaction_number;
+
+        }
+
+
 
         public static Int32 SetAccountNumber(AppDbContext db)
         {
@@ -129,15 +158,95 @@ namespace FinalProject.Utilities
 
         public static void GetDescription(Deposit deposit)
         {
-            deposit.Description = "Deposit from " + deposit.Account.Name + "on" + deposit.Date;
+            deposit.Description = "Deposit to " + deposit.Account.Name + " on " + deposit.Date;
         }
 
         public static void GetDescription(Withdraw withdraw)
         {
-            withdraw.Description = "Withdrawal from " + withdraw.Account.Name + "on" + withdraw.Date;
+            withdraw.Description = "Withdrawal from " + withdraw.Account.Name + " on " + withdraw.Date;
         }
 
         
+
+        //validates IRA deposits
+        //returns -1 when there is an error
+        public static int IRA_Deposit(Deposit deposit)
+        {
+            DateTime user = deposit.Account.AppUser.Birthday;
+
+            DateTime today = DateTime.Today;
+
+            int age = today.Year - user.Year;
+
+            if(age > 70)
+            {
+                return -1;
+            }
+            else
+            {
+                decimal contributions = deposit.Amount;
+
+                List<Deposit> Deposits = deposit.Account.Deposits;
+                List<Transfer> Transfers = deposit.Account.Transfers;
+
+                foreach(var item in Deposits)
+                {
+                    contributions += item.Amount;
+                }
+                foreach(var item in Transfers)
+                {
+                    decimal amount = item.Amount;
+                    contributions += amount;
+                }
+                if(contributions > 5000)
+                {
+
+                    deposit.Amount = 5000 - contributions;
+                    return -1;
+                }
+                else
+                {
+                    return 0;
+                }
+
+            }
+        }
+
+        //ira withdrawals
+        //return -1 if the transaction is unqualified
+        public static int IRA_Withdraw(Withdraw withdrawal)
+        {
+            DateTime bday = withdrawal.Account.AppUser.Birthday;
+            DateTime now = DateTime.Today;
+
+            //calculate age
+            int age = now.Year - bday.Year;
+
+            //qualified
+            if (age > 65)
+            {
+                return 0;
+            }
+            //unqualified
+            else
+            {
+                //TODO: add logic to apply fees for unqualified transaction
+
+                //max for unqualified 
+                if(withdrawal.Amount > 3000)
+                {
+                    
+                    withdrawal.Amount = 3000;
+                    return -1;
+                }
+                else
+                {
+                    return -1;
+                }
+
+            }
+        }
+ 
 
 
 
